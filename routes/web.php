@@ -77,7 +77,55 @@ Route::group(['prefix' => 'admin'], function () {
         return view('admin.login');
     });
 
-    Route::get('/home', function () {
+    Route::get('/', function () {
         return view('admin.home');
+    });
+    Route::get('/product', function () {
+        return view('admin.product');
+    });
+    Route::get('/product/create', function () {
+        return view('admin.product-create');
+    });
+    Route::get('/category', function () {
+        return view('admin.category');
+    });
+    Route::get('/category/create', function () {
+        return view('admin.category-create');
+    });
+    Route::get('/attribute', function () {
+        return view('admin.attribute');
+    });
+    Route::get('/attribute/create', function () {
+        return view('admin.attribute-create');
+    });
+    Route::get('/user', function () {
+        return view('admin.all-users');
+    });
+    Route::get('/user/create', function () {
+        return view('admin.user-create');
+    });
+    Route::get('/attribute/create', function () {
+        return view('admin.attribute-create');
+    });
+    Route::get('/role', function () {
+        return view('admin.role');
+    });
+    Route::get('/role/create', function () {
+        return view('admin.role-create');
+    });
+    Route::get('/media', function () {
+        return view('admin.media');
+    });
+    Route::get('/order-list', function () {
+        return view('admin.order-list');
+    });
+    Route::get('/coupon-list', function () {
+        return view('admin.coupon-list');
+    });
+    Route::get('/coupon/create', function () {
+        return view('admin.coupon-create');
+    });
+    Route::get('/product-review', function () {
+        return view('admin.product-review');
     });
 });

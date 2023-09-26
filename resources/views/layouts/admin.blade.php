@@ -70,14 +70,14 @@
             <div class="header-wrapper m-0">
                 <div class="header-logo-wrapper p-0">
                     <div class="logo-wrapper">
-                        <a href="index.php">
+                        <a href="{{ url('admin', []) }}">
                             <img class="img-fluid main-logo" src="{{ asset('assets_admin/images/logo/1.png') }}" alt="logo">
                             <img class="img-fluid white-logo" src="{{ asset('assets_admin/images/logo/1-white.png') }}" alt="logo">
                         </a>
                     </div>
                     <div class="toggle-sidebar">
                         <i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i>
-                        <a href="index.php">
+                        <a href="{{ url('admin', []) }}">
                             <img src="{{ asset('assets_admin/images/logo/1.png') }}" class="img-fluid" alt="">
                         </a>
                     </div>
@@ -160,13 +160,13 @@
                             </div>
                             <ul class="profile-dropdown onhover-show-div">
                                 <li>
-                                    <a href="all-users.php">
+                                    <a href="{{ url('admin/user', []) }}">
                                         <i data-feather="users"></i>
                                         <span>Users</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="order-list.php">
+                                    <a href="{{ url('admin/order-list', []) }}">
                                         <i data-feather="archive"></i>
                                         <span>Orders</span>
                                     </a>
@@ -203,7 +203,7 @@
                 <div id="sidebarEffect"></div>
                 <div>
                     <div class="logo-wrapper logo-wrapper-center">
-                        <a href="index.php" data-bs-original-title="" title="">
+                        <a href="{{ url('admin', []) }}" data-bs-original-title="" title="">
                             <img class="img-fluid for-white" src="{{ asset('assets_admin/images/logo/full-white.png') }}" alt="logo">
                         </a>
                         <div class="back-btn">
@@ -214,7 +214,7 @@
                         </div>
                     </div>
                     <div class="logo-icon-wrapper">
-                        <a href="index.php">
+                        <a href="{{ url('admin', []) }}">
                             <img class="img-fluid main-logo main-white" src="{{ asset('assets_admin/images/logo/logo.png') }}" alt="logo">
                             <img class="img-fluid main-logo main-dark" src="{{ asset('assets_admin/images/logo/logo-white.png') }}"
                                 alt="logo">
@@ -230,7 +230,7 @@
                                 <li class="back-btn"></li>
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="index.php">
+                                    <a class="sidebar-link sidebar-title link-nav" href="{{ url('admin', []) }}">
                                         <i class="ri-home-line"></i>
                                         <span>Dashboard</span>
                                     </a>
@@ -243,11 +243,11 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="products.php">Prodcts</a>
+                                            <a href="{{ url('admin/product', []) }}">Prodcts</a>
                                         </li>
 
                                         <li>
-                                            <a href="add-new-product.php">Add New Products</a>
+                                            <a href="{{ url('admin/product/create', []) }}">Add New Products</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -259,11 +259,11 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="category.php">Category List</a>
+                                            <a href="{{ url('admin/category', []) }}">Category List</a>
                                         </li>
 
                                         <li>
-                                            <a href="add-new-category.php">Add New Category</a>
+                                            <a href="{{ url('admin/category/create', []) }}">Add New Category</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -275,11 +275,11 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="attributes.php">Attributes</a>
+                                            <a href="{{ url('admin/attribute', []) }}">Attributes</a>
                                         </li>
 
                                         <li>
-                                            <a href="add-new-attributes.php">Add Attributes</a>
+                                            <a href="{{ url('admin/attribute/create', []) }}">Add Attributes</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -291,10 +291,10 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="all-users.php">All users</a>
+                                            <a href="{{ url('admin/user', []) }}">All users</a>
                                         </li>
                                         <li>
-                                            <a href="add-new-user.php">Add new user</a>
+                                            <a href="{{ url('admin/user/create', []) }}">Add new user</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -306,16 +306,16 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="role.php">All roles</a>
+                                            <a href="{{ url('admin/role', []) }}">All roles</a>
                                         </li>
                                         <li>
-                                            <a href="create-role.php">Create Role</a>
+                                            <a href="{{ url('admin/role/create', []) }}">Create Role</a>
                                         </li>
                                     </ul>
                                 </li>
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="media.php">
+                                    <a class="sidebar-link sidebar-title link-nav" href="{{ url('admin/media', []) }}">
                                         <i class="ri-price-tag-3-line"></i>
                                         <span>Media</span>
                                     </a>
@@ -328,13 +328,13 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="order-list.php">Order List</a>
+                                            <a href="{{ url('admin/order-list', []) }}">Order List</a>
                                         </li>
                                         <li>
-                                            <a href="order-detail.php">Order Detail</a>
+                                            <a href="{{ url('admin/order-detail', []) }}">Order Detail</a>
                                         </li>
                                         <li>
-                                            <a href="order-tracking.php">Order Tracking</a>
+                                            <a href="{{ url('admin/order-tracking', []) }}">Order Tracking</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -348,11 +348,11 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="coupon-list.php">Coupon List</a>
+                                            <a href="{{ asset('admin/coupon-list') }}">Coupon List</a>
                                         </li>
 
                                         <li>
-                                            <a href="create-coupon.php">Create Coupon</a>
+                                            <a href="{{ asset('admin/coupon/create') }}">Create Coupon</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -360,7 +360,7 @@
 
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="product-review.php">
+                                    <a class="sidebar-link sidebar-title link-nav" href="{{ url('admin/product-review', []) }}">
                                         <i class="ri-star-line"></i>
                                         <span>Product Review</span>
                                     </a>
