@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="seller-category">
-                            <button onclick="location.href = 'seller-detail-2.php';"
+                            <button onclick="location.href = 'seller-detail';"
                                 class="btn btn-sm theme-bg-color text-white fw-bold">Visit Store <i
                                     class="fa-solid fa-arrow-right-long ms-2"></i></button>
                             <ul class="product-image">
@@ -183,7 +183,7 @@
                         </div>
 
                         <div class="seller-category">
-                            <button onclick="location.href = 'seller-detail-2.php';"
+                            <button onclick="location.href = 'seller-detail';"
                                 class="btn btn-sm theme-bg-color text-white fw-bold">Visit Store <i
                                     class="fa-solid fa-arrow-right-long ms-2"></i></button>
                             <ul class="product-image">
@@ -272,7 +272,7 @@
                         </div>
 
                         <div class="seller-category">
-                            <button onclick="location.href = 'seller-detail-2.php';"
+                            <button onclick="location.href = 'seller-detail';"
                                 class="btn btn-sm theme-bg-color text-white fw-bold">Visit Store <i
                                     class="fa-solid fa-arrow-right-long ms-2"></i></button>
                             <ul class="product-image">
@@ -361,7 +361,7 @@
                         </div>
 
                         <div class="seller-category">
-                            <button onclick="location.href = 'seller-detail-2.php';"
+                            <button onclick="location.href = 'seller-detail';"
                                 class="btn btn-sm theme-bg-color text-white fw-bold">Visit Store <i
                                     class="fa-solid fa-arrow-right-long ms-2"></i></button>
                             <ul class="product-image">
@@ -450,7 +450,7 @@
                         </div>
 
                         <div class="seller-category">
-                            <button onclick="location.href = 'seller-detail-2.php';"
+                            <button onclick="location.href = 'seller-detail';"
                                 class="btn btn-sm theme-bg-color text-white fw-bold">Visit Store <i
                                     class="fa-solid fa-arrow-right-long ms-2"></i></button>
                             <ul class="product-image">
@@ -539,7 +539,7 @@
                         </div>
 
                         <div class="seller-category">
-                            <button onclick="location.href = 'seller-detail-2.php';"
+                            <button onclick="location.href = 'seller-detail';"
                                 class="btn btn-sm theme-bg-color text-white fw-bold">Visit Store <i
                                     class="fa-solid fa-arrow-right-long ms-2"></i></button>
                             <ul class="product-image">
@@ -628,7 +628,7 @@
                         </div>
 
                         <div class="seller-category">
-                            <button onclick="location.href = 'seller-detail-2.php';"
+                            <button onclick="location.href = 'seller-detail';"
                                 class="btn btn-sm theme-bg-color text-white fw-bold">Visit Store <i
                                     class="fa-solid fa-arrow-right-long ms-2"></i></button>
                             <ul class="product-image">
@@ -717,7 +717,7 @@
                         </div>
 
                         <div class="seller-category">
-                            <button onclick="location.href = 'seller-detail-2.php';"
+                            <button onclick="location.href = 'seller-detail';"
                                 class="btn btn-sm theme-bg-color text-white fw-bold">Visit Store <i
                                     class="fa-solid fa-arrow-right-long ms-2"></i></button>
                             <ul class="product-image">
@@ -806,7 +806,7 @@
                         </div>
 
                         <div class="seller-category">
-                            <button onclick="location.href = 'seller-detail-2.php';"
+                            <button onclick="location.href = 'seller-detail';"
                                 class="btn btn-sm theme-bg-color text-white fw-bold">Visit Store <i
                                     class="fa-solid fa-arrow-right-long ms-2"></i></button>
                             <ul class="product-image">

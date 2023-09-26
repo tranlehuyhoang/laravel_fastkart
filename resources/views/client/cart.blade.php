@@ -368,7 +368,7 @@
                     <div class="button-group cart-button">
                         <ul>
                             <li>
-                                <button onclick="location.href = 'checkout.html';"
+                                <button onclick="location.href = 'checkout';"
                                     class="btn btn-animation proceed-btn fw-bold">Process To Checkout</button>
                             </li>
 

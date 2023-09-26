@@ -254,7 +254,7 @@
                                     </div>
                                 </div>
 
-                                <button onclick="location.href = 'cart.html';"
+                                <button onclick="location.href = 'cart';"
                                     class="btn btn-md bg-dark cart-button text-white w-100">Add To Cart</button>
                             </div>
 

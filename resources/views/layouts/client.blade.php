@@ -208,7 +208,7 @@
                                     <i class="fa-solid fa-bars"></i>
                                 </span>
                             </button>
-                            <a href="index.php" class="web-logo nav-logo">
+                            <a href="{{ url('/', []) }}" class="web-logo nav-logo">
                                 <img src="assets_client/images/logo/1.png" class="img-fluid blur-up lazyloaded" alt="">
                             </a>
 
@@ -865,7 +865,7 @@
 
                                                 <ul class="dropdown-menu">
                                                     <li>
-                                                        <a class="dropdown-item" href="index.php">Kartshop</a>
+                                                        <a class="dropdown-item" href="{{ url('/', []) }}">Kartshop</a>
                                                     </li>
 
                                                 </ul>
@@ -881,7 +881,7 @@
                                                             Products</a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item" href="seller-grid-2.php">Shop
+                                                        <a class="dropdown-item" href="{{ url('seller-list', []) }}">Shop
                                                             Seller</a>
                                                     </li>
 
@@ -1000,7 +1000,7 @@
                                                     </li>
 
                                                     <li>
-                                                        <a class="dropdown-item" href="seller-grid-2.php">Seller
+                                                        <a class="dropdown-item" href="{{ url('seller-list', []) }}">Seller
                                                             Shops</a>
                                                     </li>
 
@@ -1033,7 +1033,7 @@
     <div class="mobile-menu d-md-none d-block mobile-cart">
         <ul>
             <li class="active">
-                <a href="index.php">
+                <a href="{{ url('/', []) }}">
                     <i class="iconly-Home icli"></i>
                     <span>Home</span>
                 </a>

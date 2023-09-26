@@ -72,3 +72,12 @@ Route::get('/seller-list', function () {
 Route::get('/wishlist', function () {
     return view('client.wishlist');
 });
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/login', function () {
+        return view('admin.login');
+    });
+
+    Route::get('/home', function () {
+        return view('admin.home');
+    });
+});
