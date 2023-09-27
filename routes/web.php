@@ -81,6 +81,7 @@ Route::controller(RegistrationController::class)->middleware('guest')->group(fun
 Route::controller(SessionsController::class)->group(function () {
     Route::get('login', 'create')->middleware('guest');
     Route::post('login', 'store');
+    Route::post('admin/login', 'admin_login');
     Route::get('logout', 'destroy');
 });
 
@@ -148,8 +149,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::group(['prefix' => 'user'], function () {
         Route::get('/', [UserController::class, 'index']);
         Route::get('/create', [UserController::class, 'create']);
+        Route::get('/{user}/edit', [UserController::class, 'edit']);
         Route::post('/', [UserController::class, 'store']);
-        Route::put('/', [UserController::class, 'update']);
+        Route::put('/{user}', [UserController::class, 'update']);
         Route::get('/{user}/delete', [UserController::class, 'destroy']);
     });
 });

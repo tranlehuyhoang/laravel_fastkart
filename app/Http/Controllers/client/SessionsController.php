@@ -22,6 +22,16 @@ class SessionsController extends Controller
 
         return redirect()->to('/');
     }
+    public function admin_login()
+    {
+        if (auth()->attempt(request(['email', 'password'])) == false) {
+            return back()->withErrors([
+                'message' => 'The email or password is incorrect, please try again'
+            ]);
+        }
+
+        return redirect('admin');
+    }
 
     public function destroy()
     {

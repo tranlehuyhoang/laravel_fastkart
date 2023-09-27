@@ -14,7 +14,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="title-header option-title">
-                                    <h5>Add New User</h5>
+                                    <h5>Edit User</h5>
                                 </div>
                                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                     <li class="nav-item" role="presentation">
@@ -27,8 +27,9 @@
                                     </li>
                                 </ul>
 
-                                <form class="theme-form theme-form-2 mega-form" enctype="multipart/form-data" method="POST" action="{{ url('register', []) }}">
+                                <form class="theme-form theme-form-2 mega-form" enctype="multipart/form-data" method="POST" action="{{ url('admin/user/'. $user->id. '', []) }}">
                                     @csrf
+                                    @method('PUT')
                                 <div class="tab-content" id="pills-tabContent">
                                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel">
                                       
@@ -41,7 +42,7 @@
                                                     <label class="form-label-title col-lg-2 col-md-3 mb-0">Full
                                                         Name</label>
                                                     <div class="col-md-9 col-lg-10">
-                                                        <input class="form-control" type="text" name="name">
+                                                        <input value="{{$user->name}}" class="form-control" type="text" name="name">
                                                     </div>
                                                 </div>
 
@@ -50,7 +51,7 @@
                                                         class="col-lg-2 col-md-3 col-form-label form-label-title">Email
                                                         Address</label>
                                                     <div class="col-md-9 col-lg-10">
-                                                        <input class="form-control" type="email" name="email">
+                                                        <input class="form-control" value="{{$user->email}}"type="email" name="email">
                                                     </div>
                                                 </div>
 
@@ -58,7 +59,7 @@
                                                     <label
                                                         class="col-lg-2 col-md-3 col-form-label form-label-title">Password</label>
                                                     <div class="col-md-9 col-lg-10">
-                                                        <input class="form-control" type="password" name="password">
+                                                        <input class="form-control" value="{{$user->password}}" disabled type="password" name="password">
                                                     </div>
                                                 </div>
 
@@ -73,24 +74,24 @@
                                         <div class="mb-4 row align-items-center">
                                             <label class="col-md-2 mb-0">Choose One : </label>
                                             <div class="col-md-9">
-                                                <form class="radio-section">
+                                                <div class="radio-section">
                                                     <label>
-                                                        <input type="radio" value="1" name="opinion" checked>
+                                                        <input type="radio" value="1" name="role"  {{$user->role == '1' ? 'checked' :''}} >
                                                         <i></i>
                                                         <span>Admin</span>
                                                     </label>
 
                                                     <label>
-                                                        <input type="radio"value="2" name="opinion" />
+                                                        <input type="radio"value="2" name="role"{{$user->role == '2' ? 'checked' :''}}  />
                                                         <i></i>
                                                         <span>Seller</span>
                                                     </label>
                                                     <label>
-                                                        <input type="radio"value="0" name="opinion" />
+                                                        <input type="radio"value="0" name="role"{{$user->role == '0' ? 'checked' :''}}  />
                                                         <i></i>
                                                         <span>User</span>
                                                     </label>
-                                                </form>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -106,8 +107,8 @@
                                                 <i class="ri-upload-2-line"></i>
                                                 <p>Choose an image file or drag it here.</p>
                                             </div>
-                                            <input type="file" name="category_image" class="dropzone" onchange="previewImage(event, 'image-preview')" data-bs-original-title="" title="">
-                                            <img id="image-preview" src=" " alt="Image Preview" style="display: none; width: 100%;; height: 100%;">
+                                            <input type="file" name="image" class="dropzone" onchange="previewImage(event, 'image-preview')" data-bs-original-title="" title="">
+                                            <img id="image-preview" src="{{ asset($user->image) }}" alt="Image Preview" style="display: {{$user->image ? 'block' :'none'}}; width: 100%;; height: 100%;">
                                         </div>
                                         <script>
                                             function previewImage(event, previewId) {
@@ -122,7 +123,7 @@
                                             }
                                             
                                         </script>
-                                        <button class="btn ms-auto theme-bg-color text-white" type="submit" data-bs-original-title="" title="">Create User</button>
+                                        <button class="btn ms-auto theme-bg-color text-white" type="submit" data-bs-original-title="" title="">Update User</button>
                                     </div>
                                     
                                 </div>

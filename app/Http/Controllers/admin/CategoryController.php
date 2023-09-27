@@ -12,11 +12,11 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::orderByDesc('id')->get();
-        return view('admin.category', compact('categories'));
+        return view('admin.category.category', compact('categories'));
     }
     public function create()
     {
-        return view('admin.category-create');
+        return view('admin.category.category-create');
     }
 
 
@@ -57,7 +57,7 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
-        return view('admin.category-edit', compact('category'));
+        return view('admin.category.category-edit', compact('category'));
     }
 
     public function update(Request $request, $id)

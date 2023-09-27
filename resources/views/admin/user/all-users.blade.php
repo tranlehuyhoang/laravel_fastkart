@@ -14,7 +14,7 @@
                         <div class="title-header option-title">
                             <h5>All Users</h5>
                             <form class="d-inline-flex">
-                                <a href="add-new-user.html" class="align-items-center btn btn-theme d-flex">
+                                <a href="{{ url('admin/user/create', []) }}" class="align-items-center btn btn-theme d-flex">
                                     <i data-feather="plus"></i>Add New
                                 </a>
                             </form>
@@ -36,7 +36,6 @@
                                 <tbody>
                                     @foreach ($users as $user)
                                         
-                                    @endforeach
                                     <tr>
                                         <td>
                                             <div class="table-image">
@@ -54,7 +53,15 @@
                                       
 
                                         <td>{{$user->email}}</td>
-                                        <td>{{$user->role}}</td>
+                                        <td>
+                                            @if ($user->role == 1)
+                                                Admin
+                                            @elseif ($user->role == 0)
+                                                User
+                                            @elseif ($user->role == 2)
+                                                Seller
+                                            @endif
+                                        </td>
 
                                         <td>
                                             <ul>
@@ -65,19 +72,20 @@
                                                 </li>
 
                                                 <li>
-                                                    <a href="javascript:void(0)">
+                                                    <a href="{{ url('admin/user/'. $user->id .'/edit', []) }}">
                                                         <i class="ri-pencil-line"></i>
                                                     </a>
                                                 </li>
 
                                                 <li>
-                                                    <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                                                    <a href="{{ url('admin/user/'. $user->id .'/delete', []) }}"  >
                                                         <i class="ri-delete-bin-line"></i>
                                                     </a>
                                                 </li>
                                             </ul>
                                         </td>
                                     </tr>
+                                    @endforeach
 
                             
                                 </tbody>
