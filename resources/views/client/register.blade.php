@@ -46,23 +46,24 @@
                     </div>
 
                     <div class="input-box">
-                        <form class="row g-4">
+                        <form class="row g-4" method="POST" action="/register">
+                            @csrf
                             <div class="col-12">
                                 <div class="form-floating theme-form-floating">
-                                    <input type="text" class="form-control" id="fullname" placeholder="Full Name">
+                                    <input type="text" class="form-control" id="fullname"  name="name" placeholder="Full Name">
                                     <label for="fullname">Full Name</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating theme-form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Email Address">
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Email Address">
                                     <label for="email">Email Address</label>
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="form-floating theme-form-floating">
-                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
                                     <label for="password">Password</label>
                                 </div>
                             </div>

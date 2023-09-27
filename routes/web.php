@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\client\RegistrationController;
+use App\Http\Controllers\client\SessionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,12 +41,8 @@ Route::get('/compare', function () {
 Route::get('/forgot', function () {
     return view('client.forgot');
 });
-Route::get('/login', function () {
-    return view('client.login');
-});
-Route::get('/register', function () {
-    return view('client.register');
-});
+
+
 Route::get('/order-success', function () {
     return view('client.order-success');
 });
@@ -72,6 +70,18 @@ Route::get('/seller-list', function () {
 Route::get('/wishlist', function () {
     return view('client.wishlist');
 });
+Route::controller(RegistrationController::class)->middleware('guest')->group(function () {
+    Route::get('register', 'create');
+    Route::post('register', 'store');
+});
+Route::controller(SessionsController::class)->group(function () {
+    Route::get('login', 'create');
+    Route::post('login', 'store');
+    Route::get('logout', 'destroy');
+});
+
+
+
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/login', function () {
         return view('admin.login');

@@ -6982,14 +6982,14 @@
             <div>
                 <div class="blog-box ratio_50">
                     <div class="blog-box-image">
-                        <a href="blog-detail.html">
+                        <a href="{{ url('blog', []) }}">
                             <img src="assets_client/images/veg-3/blog/1.jpg" class="img-fluid bg-img" alt="">
                         </a>
                     </div>
 
                     <div class="blog-detail">
                         <label>Conversion rate optimization</label>
-                        <a href="blog-detail.html">
+                        <a href="{{ url('blog', []) }}">
                             <h2>A Fresh Vegetable online market place a fresh...</h2>
                         </a>
                         <div class="blog-list">
@@ -7003,14 +7003,14 @@
             <div>
                 <div class="blog-box ratio_50">
                     <div class="blog-box-image">
-                        <a href="blog-detail.html">
+                        <a href="{{ url('blog', []) }}">
                             <img src="assets_client/images/veg-3/blog/2.jpg" class="img-fluid bg-img" alt="">
                         </a>
                     </div>
 
                     <div class="blog-detail">
                         <label>Email Marketing</label>
-                        <a href="blog-detail.html">
+                        <a href="{{ url('blog', []) }}">
                             <h2>A Fresh Vegetable online market place a fresh...</h2>
                         </a>
                         <div class="blog-list">
@@ -7024,14 +7024,14 @@
             <div>
                 <div class="blog-box ratio_50">
                     <div class="blog-box-image">
-                        <a href="blog-detail.html">
+                        <a href="{{ url('blog', []) }}">
                             <img src="assets_client/images/veg-3/blog/3.jpg" class="img-fluid bg-img" alt="">
                         </a>
                     </div>
 
                     <div class="blog-detail">
                         <label>Conversion rate optimization</label>
-                        <a href="blog-detail.html">
+                        <a href="{{ url('blog', []) }}">
                             <h2>A Fresh Vegetable online market place a fresh...</h2>
                         </a>
                         <div class="blog-list">
@@ -7045,14 +7045,14 @@
             <div>
                 <div class="blog-box ratio_50">
                     <div class="blog-box-image">
-                        <a href="blog-detail.html">
+                        <a href="{{ url('blog', []) }}">
                             <img src="assets_client/images/veg-3/blog/1.jpg" class="img-fluid bg-img" alt="">
                         </a>
                     </div>
 
                     <div class="blog-detail">
                         <label>Conversion rate optimization</label>
-                        <a href="blog-detail.html">
+                        <a href="{{ url('blog', []) }}">
                             <h2>A Fresh Vegetable online market place a fresh...</h2>
                         </a>
                         <div class="blog-list">

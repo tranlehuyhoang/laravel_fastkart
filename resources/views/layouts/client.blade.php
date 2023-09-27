@@ -390,6 +390,41 @@
                                             </div>
                                         </div>
                                     </li>
+                                    @if (!auth()->check() )
+                                    <li class="right-side onhover-dropdown">
+                                        <div class="delivery-login-box">
+                                            <div class="delivery-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="feather feather-user">
+                                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                </svg>
+                                            </div>
+                                            <div class="delivery-detail">
+                                               
+                                            </div>
+                                        </div>
+
+                                        <div class="onhover-div onhover-div-login">
+                                            <ul class="user-box-name">
+                                                <li class="product-box-contain">
+                                                    <i></i>
+                                                    <a href="{{ url('login', []) }}">Log In</a>
+                                                </li>
+
+                                                <li class="product-box-contain">
+                                                    <a href="{{ url('register', []) }}">Register</a>
+                                                </li>
+
+                                                <li class="product-box-contain">
+                                                    <a href="forgot.php">Forgot Password</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    @else
                                     <li class="right-side onhover-dropdown">
                                         <div class="delivery-login-box">
                                             <div class="delivery-icon">
@@ -403,27 +438,26 @@
                                             </div>
                                             <div class="delivery-detail">
                                                 <h6>Hello,</h6>
-                                                <h5>My Account</h5>
+                                                <h5>{{ auth()->user()->name }}</h5>
                                             </div>
                                         </div>
 
                                         <div class="onhover-div onhover-div-login">
                                             <ul class="user-box-name">
+                                                
+                                                <li class="product-box-contain">
+                                                    <a href="sign-up.php">My Account</a>
+                                                </li>
                                                 <li class="product-box-contain">
                                                     <i></i>
-                                                    <a href="login.php">Log In</a>
+                                                    <a href="{{ url('logout', []) }}">Log Out</a>
                                                 </li>
-
-                                                <li class="product-box-contain">
-                                                    <a href="sign-up.php">Register</a>
-                                                </li>
-
-                                                <li class="product-box-contain">
-                                                    <a href="forgot.php">Forgot Password</a>
-                                                </li>
+ 
                                             </ul>
                                         </div>
                                     </li>
+                                    @endif
+                                   
                                 </ul>
                             </div>
                         </div>
