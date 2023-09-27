@@ -154,7 +154,7 @@
                             <div class="media profile-media">
                                 <img class="user-profile rounded-circle" src="{{ asset('assets_admin/images/users/4.jpg') }}" alt="">
                                 <div class="user-name-hide media-body">
-                                    <span>Emay Walter</span>
+                                    <span>{{ auth()->user()->name }}</span>
                                     <p class="mb-0 font-roboto">Admin<i class="middle ri-arrow-down-s-line"></i></p>
                                 </div>
                             </div>
@@ -394,7 +394,7 @@
 
                             <div class="button-box">
                                 <button type="button" class="btn btn--no" data-bs-dismiss="modal">No</button>
-                                <button type="button" class="btn  btn--yes btn-primary">Yes</button>
+                                <a href="{{ url('logout', []) }}" class="btn  btn--yes btn-primary" >Yes</a>
                             </div>
                         </div>
                     </div>
@@ -407,7 +407,7 @@
     <!-- page-wrapper End-->
     
     <!-- Modal Start -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    {{-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog  modal-dialog-centered">
             <div class="modal-content">
@@ -422,7 +422,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Modal End -->
     
     <!-- latest js -->

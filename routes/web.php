@@ -75,17 +75,17 @@ Route::controller(RegistrationController::class)->middleware('guest')->group(fun
     Route::post('register', 'store');
 });
 Route::controller(SessionsController::class)->group(function () {
-    Route::get('login', 'create');
+    Route::get('login', 'create')->middleware('guest');
     Route::post('login', 'store');
     Route::get('logout', 'destroy');
 });
 
+Route::get('admin/login', function () {
+    return view('admin.login');
+})->name('admin.login');
 
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('/login', function () {
-        return view('admin.login');
-    });
 
     Route::get('/', function () {
         return view('admin.home');
