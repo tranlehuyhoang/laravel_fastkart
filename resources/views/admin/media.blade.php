@@ -15,7 +15,7 @@
                             <div class="selected-options">
                                 <ul>
                                     <li id="selectedCount">selected(0)</li>
-                                    <li><a href="#"><i class="ri-download-2-line"></i></a></li>
+                                    <li><a class="dropdown-item d-flex align-items-center" href="#" id="downloadSelected"><i class="ri-download-2-line me-2"></i>Download</a></li>
                                     <li><a href="#" id="deleteSelected"><i class="ri-delete-bin-line"></i></a></li>
                                 </ul>
                             </div>
@@ -40,10 +40,8 @@
                                             <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="ri-more-fill"></i>
                                             </a>
-                                           
-                        
                                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a></li>
+                                                <li><a class="dropdown-item d-flex align-items-center" href="{{ url($media->image) }}" download><i class="ri-download-2-line me-2"></i>Download</a></li>
                                                 <li><a class="dropdown-item d-flex align-items-center deleteImage" href="{{ url('admin/media/'. $media->id .'/delete', []) }}"><i class="ri-delete-bin-line me-2"></i>Delete</a></li>
                                             </ul>
                                         </div>
@@ -54,6 +52,50 @@
                         </div>
                         
                         <script>
+                            // Lấy danh sách tất cả các phần tử checkbox trong danh sách hình ảnh
+var checkboxes = document.getElementsByClassName('imageCheckbox');
+
+// Lặp qua danh sách các checkbox và thêm sự kiện lắng nghe cho mỗi checkbox
+for (var i = 0; i < checkboxes.length; i++) {
+  checkboxes[i].addEventListener('change', updateSelectedCount);
+}
+
+// Hàm xử lý sự kiện thay đổi checkbox
+function updateSelectedCount() {
+  // Đếm số lượng checkbox đã được chọn
+  var selectedCount = 0;
+  for (var i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      selectedCount++;
+    }
+  }
+
+  // Cập nhật nội dung của phần tử "selectedCount"
+  var selectedCountElement = document.getElementById('selectedCount');
+  selectedCountElement.textContent = 'selected(' + selectedCount + ')';
+}
+                            document.getElementById('downloadSelected').addEventListener('click', function() {
+    var checkboxes = document.getElementsByClassName('imageCheckbox');
+    var selectedImages = [];
+
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            selectedImages.push(checkboxes[i]);
+        }
+    }
+
+    if (selectedImages.length > 0) {
+        for (var j = 0; j < selectedImages.length; j++) {
+            var imageURL = selectedImages[j].parentNode.querySelector('img').src;
+            var downloadLink = document.createElement('a');
+            downloadLink.href = imageURL;
+            downloadLink.download = 'image_' + j + '.jpg';
+            downloadLink.click();
+        }
+    } else {
+        console.log('No images selected.');
+    }
+});
               // Lắng nghe sự kiện khi người dùng nhấp vào biểu tượng xóa
 document.getElementById('deleteSelected').addEventListener('click', function() {
     var selectedImages = [];
@@ -396,15 +438,25 @@ document.getElementById('deleteSelected').addEventListener('click', function() {
             <div class="modal-footer">
                 <div class="left-part">
                     <div class="file-detail">
-                        <h6>0 File Selected</h6>
-                        <a href="#" class="font-red">Clear</a>
+                        <h6 id="file-count">0 File Selected</h6>
+                        <a href="#" class="font-red" data-bs-original-title="" title="">Clear</a>
                     </div>
+                        <script>
+                            const fileInput = document.getElementById('image');
+                            const fileCountElement = document.getElementById('file-count');
+                            
+                            fileInput.addEventListener('change', function() {
+                                const fileCount = this.files.length;
+                                fileCountElement.textContent = fileCount + (fileCount === 1 ? ' File Selected' : ' Files Selected');
+                            });
+                        </script>
                 </div>
                 <div class="right-part">
                     <button type="submit" class="btn btn-solid">Insert Media</button>
                 </div>
             </div>
         </form>
+
         </div>
     </div>
 </div>
