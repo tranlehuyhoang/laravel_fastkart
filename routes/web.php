@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MediaController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\RegistrationController;
 use App\Http\Controllers\client\SessionsController;
 use App\Models\Category;
@@ -87,11 +88,9 @@ Route::controller(SessionsController::class)->group(function () {
 
 Route::get('admin/login', function () {
     return view('admin.login');
-})->name('admin.login');
+})->name('admin.login')->middleware('guest');
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
-
-
     Route::get('/', function () {
         return view('admin.home');
     });
@@ -154,4 +153,10 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::put('/{user}', [UserController::class, 'update']);
         Route::get('/{user}/delete', [UserController::class, 'destroy']);
     });
+});
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::post('/media', 'store');
+    Route::post('/medias', 'deleteMultiple');
+    Route::get('media/{media}/delete', 'destroy');
 });

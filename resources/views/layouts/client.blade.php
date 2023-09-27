@@ -446,7 +446,7 @@
                                             <ul class="user-box-name">
                                                 
                                                 <li class="product-box-contain">
-                                                    <a href="sign-up.php">My Account</a>
+                                                    <a href="{{ url('user-dashboard', []) }}">My Account</a>
                                                 </li>
                                                 <li class="product-box-contain">
                                                     <i></i>
