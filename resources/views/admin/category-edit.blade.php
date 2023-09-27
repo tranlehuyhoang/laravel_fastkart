@@ -17,8 +17,9 @@
                                     <h5>Category Information</h5>
                                 </div>
 
-                                <form class="theme-form theme-form-2 mega-form" method="POST" action="{{ url('admin/category', []) }}" enctype="multipart/form-data">
+                                <form class="theme-form theme-form-2 mega-form" method="POST" action="{{ url('admin/category/'. $category->id.'', []) }}" enctype="multipart/form-data">
                                     @csrf
+                                    @method('PUT')
                                     <div class="mb-4 row align-items-center">
                                         <label class="form-label-title col-sm-3 mb-0">Category Name</label>
                                         <div class="col-sm-9">

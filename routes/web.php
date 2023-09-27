@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MediaController;
 use App\Http\Controllers\client\RegistrationController;
 use App\Http\Controllers\client\SessionsController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -97,12 +99,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/product/create', function () {
         return view('admin.product-create');
     });
-    Route::get('/category', function () {
-        return view('admin.category');
-    });
-    Route::get('/category/create', function () {
-        return view('admin.category-create');
-    });
+
     Route::get('/attribute', function () {
         return view('admin.attribute');
     });
@@ -143,4 +140,20 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::post('/medias', 'deleteMultiple');
         Route::get('media/{media}/delete', 'destroy');
     });
+    Route::controller(CategoryController::class)->group(function () {
+        Route::get('/category', 'index');
+        Route::get('/category/create', 'create');
+        Route::get('/category/{category}/edit',  'edit');
+
+        Route::post('/category', 'store');
+        Route::put('/category/{category}', 'update');
+        Route::get('/category/{category}/delete', 'destroy');
+    });
+    // Route::group(['prefix' => 'category'], function () {
+    //     Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
+    //     Route::get('/create', [CategoryController::class, 'create'])->name('categories.create');
+    //     Route::post('/', [CategoryController::class, 'store'])->name('categories.store');
+    //     Route::put('/', [CategoryController::class, 'update'])->name('categories.update');
+    //     Route::get('/{category}/delete', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    // });
 });
