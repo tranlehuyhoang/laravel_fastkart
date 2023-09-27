@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\MediaController;
 use App\Http\Controllers\client\RegistrationController;
 use App\Http\Controllers\client\SessionsController;
 use Illuminate\Support\Facades\Route;
@@ -123,9 +124,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/role/create', function () {
         return view('admin.role-create');
     });
-    Route::get('/media', function () {
-        return view('admin.media');
-    });
+
     Route::get('/order-list', function () {
         return view('admin.order-list');
     });
@@ -137,5 +136,11 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     });
     Route::get('/product-review', function () {
         return view('admin.product-review');
+    });
+    Route::controller(MediaController::class)->group(function () {
+        Route::get('/media', 'index');
+        Route::post('/media', 'store');
+        Route::post('/medias', 'deleteMultiple');
+        Route::get('media/{media}/delete', 'destroy');
     });
 });

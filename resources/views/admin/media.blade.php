@@ -14,344 +14,83 @@
                             <h5>Media Library</h5>
                             <div class="selected-options">
                                 <ul>
-                                    <li>selected(0)</li>
+                                    <li id="selectedCount">selected(0)</li>
                                     <li><a href="#"><i class="ri-download-2-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-delete-bin-line"></i></a></li>
+                                    <li><a href="#" id="deleteSelected"><i class="ri-delete-bin-line"></i></a></li>
                                 </ul>
                             </div>
                             <div class="right-options ms-auto">
                                 <ul>
                                     <li>
-                                        <a class="btn btn-solid" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#mediaModel">Add
-                                            Media</a>
+                                        <a class="btn btn-solid" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#mediaModel">Add Media</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="row row-cols-xl-6 row-cols-md-5 row-cols-sm-3 row-cols-2 g-sm-3 g-2 media-library-sec ratio_square">
+                            @foreach ($medias as $media)
                             <div>
                                 <div class="library-box">
-                                    <input type="checkbox" id="myCheckbox1" />
-                                    <label for="myCheckbox1">
+                                    <input type="checkbox" name="images[]" id="myCheckbox{{ $media->id }}" class="imageCheckbox" />
+                                    <label for="myCheckbox{{ $media->id }}">
                                         <div>
-                                            <img src="{{ url('assets_admin/images/product/1.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
+                                            <img src="{{ url($media->image) }}" class="img-fluid bg-img bg_size_content" alt="">
                                         </div>
                                         <div class="dropdown">
                                             <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="ri-more-fill"></i>
                                             </a>
-
+                                           
+                        
                                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                </li>
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                </li>
-                                                </li>
+                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a></li>
+                                                <li><a class="dropdown-item d-flex align-items-center deleteImage" href="{{ url('admin/media/'. $media->id .'/delete', []) }}"><i class="ri-delete-bin-line me-2"></i>Delete</a></li>
                                             </ul>
                                         </div>
                                     </label>
                                 </div>
                             </div>
-                            <div>
-                                <div class="library-box">
-                                    <input type="checkbox" id="myCheckbox2" />
-                                    <label for="myCheckbox2">
-                                        <div>
-                                            <img src="{{ url('assets_admin/images/product/2.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                        </div>
-                                        <div class="dropdown">
-                                            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-fill"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                </li>
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                </li>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="library-box">
-                                    <input type="checkbox" id="myCheckbox3" />
-                                    <label for="myCheckbox3">
-                                        <div>
-                                            <img src="{{ url('assets_admin/images/product/3.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                        </div>
-                                        <div class="dropdown">
-                                            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-fill"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                </li>
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                </li>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="library-box">
-                                    <input type="checkbox" id="myCheckbox4" />
-                                    <label for="myCheckbox4">
-                                        <div>
-                                            <img src="{{ url('assets_admin/images/product/4.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                        </div>
-                                        <div class="dropdown">
-                                            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-fill"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                </li>
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                </li>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="library-box">
-                                    <input type="checkbox" id="myCheckbox5" />
-                                    <label for="myCheckbox5">
-                                        <div>
-                                            <img src="{{ url('assets_admin/images/product/5.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                        </div>
-                                        <div class="dropdown">
-                                            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-fill"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                </li>
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                </li>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="library-box">
-                                    <input type="checkbox" id="myCheckbox6" />
-                                    <label for="myCheckbox6">
-                                        <div>
-                                            <img src="{{ url('assets_admin/images/product/6.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                        </div>
-                                        <div class="dropdown">
-                                            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-fill"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                </li>
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                </li>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="library-box">
-                                    <input type="checkbox" id="myCheckbox7" />
-                                    <label for="myCheckbox7">
-                                        <div>
-                                            <img src="{{ url('assets_admin/images/product/7.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                        </div>
-                                        <div class="dropdown">
-                                            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-fill"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                </li>
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                </li>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="library-box">
-                                    <input type="checkbox" id="myCheckbox8" />
-                                    <label for="myCheckbox8">
-                                        <div>
-                                            <img src="{{ url('assets_admin/images/product/8.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                        </div>
-                                        <div class="dropdown">
-                                            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-fill"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                </li>
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                </li>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="library-box">
-                                    <input type="checkbox" id="myCheckbox9" />
-                                    <label for="myCheckbox9">
-                                        <div>
-                                            <img src="{{ url('assets_admin/images/product/9.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                        </div>
-                                        <div class="dropdown">
-                                            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-fill"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                </li>
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                </li>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="library-box">
-                                    <input type="checkbox" id="myCheckbox10" />
-                                    <label for="myCheckbox10">
-                                        <div>
-                                            <img src="{{ url('assets_admin/images/product/10.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                        </div>
-                                        <div class="dropdown">
-                                            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-fill"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                </li>
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                </li>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="library-box">
-                                    <input type="checkbox" id="myCheckbox11" />
-                                    <label for="myCheckbox11">
-                                        <div>
-                                            <img src="{{ url('assets_admin/images/product/14.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                        </div>
-                                        <div class="dropdown">
-                                            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-fill"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                </li>
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                </li>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="library-box">
-                                    <input type="checkbox" id="myCheckbox12" />
-                                    <label for="myCheckbox12">
-                                        <div>
-                                            <img src="{{ url('assets_admin/images/product/13.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                        </div>
-                                        <div class="dropdown">
-                                            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-fill"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                </li>
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                </li>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="library-box">
-                                    <input type="checkbox" id="myCheckbox13" />
-                                    <label for="myCheckbox13">
-                                        <div>
-                                            <img src="{{ url('assets_admin/images/product/16.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                        </div>
-                                        <div class="dropdown">
-                                            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-fill"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                </li>
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                </li>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="library-box">
-                                    <input type="checkbox" id="myCheckbox14" />
-                                    <label for="myCheckbox14">
-                                        <div>
-                                            <img src="{{ url('assets_admin/images/product/20.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                        </div>
-                                        <div class="dropdown">
-                                            <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-fill"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                </li>
-                                                <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                </li>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
+                        
+                        <script>
+              // Lắng nghe sự kiện khi người dùng nhấp vào biểu tượng xóa
+document.getElementById('deleteSelected').addEventListener('click', function() {
+    var selectedImages = [];
+    var imageCheckboxes = document.getElementsByClassName('imageCheckbox');
+    
+    // Lặp qua tất cả các checkbox hình ảnh
+    for (var i = 0; i < imageCheckboxes.length; i++) {
+        if (imageCheckboxes[i].checked) {
+            var imageId = imageCheckboxes[i].id.replace('myCheckbox', '');
+            selectedImages.push(imageId);
+        }
+    }
+    
+    // Gửi yêu cầu POST để xóa các media đã chọn
+    fetch('{{ url('/admin/medias') }}', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-TOKEN': '{{ csrf_token() }}', // Thêm CSRF token của Laravel
+    },
+    body: JSON.stringify({ ids: selectedImages }),
+})
+.then(response => {
+    if (response.ok) {
+        // Xử lý thành công
+        console.log('Xóa thành công!');
+        location.reload(); // Load lại trang
+    } else {
+        // Xử lý lỗi
+        console.error('Đã xảy ra lỗi khi xóa!');
+    }
+})
+.catch(error => {
+    console.error('Lỗi kết nối: ', error);
+});
+});
+                        </script>
                     </div>
                 </div>
             </div>
@@ -381,6 +120,8 @@
                 <h2>Insert Media</h2>
                 <button type="button" class="btn btn-close" data-bs-dismiss="modal"><span class="lnr lnr-cross"></span></button>
             </div>
+            <form action="{{ url('admin/media', []) }}" method="POST" enctype="multipart/form-data">
+               @csrf
             <div class="modal-body">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
@@ -390,264 +131,267 @@
                         <a class="nav-link" data-bs-toggle="tab" data-bs-target="#select">Select File</a>
                     </li>
                 </ul>
-                <div class="tab-content">
-                    <div class="tab-pane fade show active" id="upload">
-                        <div class="content-section drop-files-sec">
-                            <div>
-                                <i class="ri-upload-cloud-2-line"></i>
-                                <h2>Drop files here, paste <span>or</span> <a href="#" class="font-blue">browse
-                                        files</a></h2>
+                <input type="file" multiple name="image[]" id="image" style="display: none">
+                <label for="image" style="display: block">
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="upload">
+                            <div class="content-section drop-files-sec">
+                                <div>
+                                    <i class="ri-upload-cloud-2-line"></i>
+                                    <h2>Drop files here, paste <span>or</span> <a href="#" class="font-blue">browse
+                                            files</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="select">
+                            <div class="select-top-panel">
+                                <div>
+                                    <input type="text" class="form-control" placeholder="Search your files">
+                                </div>
+                                <select class="form-select">
+                                    <option>Sort By newest</option>
+                                    <option>Sort By oldest</option>
+                                    <option>Sort By smallest</option>
+                                    <option>Sort By largest</option>
+                                </select>
+                            </div>
+                            <div class="content-section select-file-section py-0 ratio2_3">
+                                <div class="row g-sm-4 row-cols-xl-5 row-cols-lg-4 py-0 media-library-sec ratio_square row-cols-sm-3 row-cols-2 g-2">
+                                    <div>
+                                        <div class="library-box">
+                                            <input type="checkbox" id="myCheckboxone" />
+                                            <label for="myCheckboxone">
+                                                <div>
+                                                    <img src="{{ url('assets_admin/images/product/1.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
+                                                </div>
+                                                <div class="dropdown">
+                                                    <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="ri-more-fill"></i>
+                                                    </a>
+    
+                                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
+                                                        </li>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="library-box">
+                                            <input type="checkbox" id="myCheckboxtwo" />
+                                            <label for="myCheckboxtwo">
+                                                <div>
+                                                    <img src="{{ url('assets_admin/images/product/2.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
+                                                </div>
+                                                <div class="dropdown">
+                                                    <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="ri-more-fill"></i>
+                                                    </a>
+    
+                                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
+                                                        </li>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="library-box">
+                                            <input type="checkbox" id="myCheckboxthree" />
+                                            <label for="myCheckboxthree">
+                                                <div>
+                                                    <img src="{{ url('assets_admin/images/product/3.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
+                                                </div>
+                                                <div class="dropdown">
+                                                    <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="ri-more-fill"></i>
+                                                    </a>
+    
+                                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
+                                                        </li>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="library-box">
+                                            <input type="checkbox" id="myCheckboxfour" />
+                                            <label for="myCheckboxfour">
+                                                <div>
+                                                    <img src="{{ url('assets_admin/images/product/4.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
+                                                </div>
+                                                <div class="dropdown">
+                                                    <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="ri-more-fill"></i>
+                                                    </a>
+    
+                                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
+                                                        </li>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="library-box">
+                                            <input type="checkbox" id="myCheckboxfive" />
+                                            <label for="myCheckboxfive">
+                                                <div>
+                                                    <img src="{{ url('assets_admin/images/product/5.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
+                                                </div>
+                                                <div class="dropdown">
+                                                    <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="ri-more-fill"></i>
+                                                    </a>
+    
+                                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
+                                                        </li>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="library-box">
+                                            <input type="checkbox" id="myCheckboxsix" />
+                                            <label for="myCheckboxsix">
+                                                <div>
+                                                    <img src="{{ url('assets_admin/images/product/6.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
+                                                </div>
+                                                <div class="dropdown">
+                                                    <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="ri-more-fill"></i>
+                                                    </a>
+    
+                                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
+                                                        </li>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="library-box">
+                                            <input type="checkbox" id="myCheckboxseven" />
+                                            <label for="myCheckboxseven">
+                                                <div>
+                                                    <img src="{{ url('assets_admin/images/product/7.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
+                                                </div>
+                                                <div class="dropdown">
+                                                    <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="ri-more-fill"></i>
+                                                    </a>
+    
+                                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
+                                                        </li>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="library-box">
+                                            <input type="checkbox" id="myCheckboxeight" />
+                                            <label for="myCheckboxeight">
+                                                <div>
+                                                    <img src="{{ url('assets_admin/images/product/8.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
+                                                </div>
+                                                <div class="dropdown">
+                                                    <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="ri-more-fill"></i>
+                                                    </a>
+    
+                                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
+                                                        </li>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="library-box">
+                                            <input type="checkbox" id="myCheckboxnine" />
+                                            <label for="myCheckboxnine">
+                                                <div>
+                                                    <img src="{{ url('assets_admin/images/product/9.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
+                                                </div>
+                                                <div class="dropdown">
+                                                    <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="ri-more-fill"></i>
+                                                    </a>
+    
+                                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
+                                                        </li>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="library-box">
+                                            <input type="checkbox" id="myCheckboxten" />
+                                            <label for="myCheckboxten">
+                                                <div>
+                                                    <img src="{{ url('assets_admin/images/product/10.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
+                                                </div>
+                                                <div class="dropdown">
+                                                    <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="ri-more-fill"></i>
+                                                    </a>
+    
+                                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
+                                                        </li>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="select">
-                        <div class="select-top-panel">
-                            <div>
-                                <input type="text" class="form-control" placeholder="Search your files">
-                            </div>
-                            <select class="form-select">
-                                <option>Sort By newest</option>
-                                <option>Sort By oldest</option>
-                                <option>Sort By smallest</option>
-                                <option>Sort By largest</option>
-                            </select>
-                        </div>
-                        <div class="content-section select-file-section py-0 ratio2_3">
-                            <div class="row g-sm-4 row-cols-xl-5 row-cols-lg-4 py-0 media-library-sec ratio_square row-cols-sm-3 row-cols-2 g-2">
-                                <div>
-                                    <div class="library-box">
-                                        <input type="checkbox" id="myCheckboxone" />
-                                        <label for="myCheckboxone">
-                                            <div>
-                                                <img src="{{ url('assets_admin/images/product/1.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                            </div>
-                                            <div class="dropdown">
-                                                <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="ri-more-fill"></i>
-                                                </a>
-
-                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                    </li>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="library-box">
-                                        <input type="checkbox" id="myCheckboxtwo" />
-                                        <label for="myCheckboxtwo">
-                                            <div>
-                                                <img src="{{ url('assets_admin/images/product/2.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                            </div>
-                                            <div class="dropdown">
-                                                <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="ri-more-fill"></i>
-                                                </a>
-
-                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                    </li>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="library-box">
-                                        <input type="checkbox" id="myCheckboxthree" />
-                                        <label for="myCheckboxthree">
-                                            <div>
-                                                <img src="{{ url('assets_admin/images/product/3.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                            </div>
-                                            <div class="dropdown">
-                                                <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="ri-more-fill"></i>
-                                                </a>
-
-                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                    </li>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="library-box">
-                                        <input type="checkbox" id="myCheckboxfour" />
-                                        <label for="myCheckboxfour">
-                                            <div>
-                                                <img src="{{ url('assets_admin/images/product/4.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                            </div>
-                                            <div class="dropdown">
-                                                <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="ri-more-fill"></i>
-                                                </a>
-
-                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                    </li>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="library-box">
-                                        <input type="checkbox" id="myCheckboxfive" />
-                                        <label for="myCheckboxfive">
-                                            <div>
-                                                <img src="{{ url('assets_admin/images/product/5.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                            </div>
-                                            <div class="dropdown">
-                                                <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="ri-more-fill"></i>
-                                                </a>
-
-                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                    </li>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="library-box">
-                                        <input type="checkbox" id="myCheckboxsix" />
-                                        <label for="myCheckboxsix">
-                                            <div>
-                                                <img src="{{ url('assets_admin/images/product/6.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                            </div>
-                                            <div class="dropdown">
-                                                <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="ri-more-fill"></i>
-                                                </a>
-
-                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                    </li>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="library-box">
-                                        <input type="checkbox" id="myCheckboxseven" />
-                                        <label for="myCheckboxseven">
-                                            <div>
-                                                <img src="{{ url('assets_admin/images/product/7.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                            </div>
-                                            <div class="dropdown">
-                                                <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="ri-more-fill"></i>
-                                                </a>
-
-                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                    </li>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="library-box">
-                                        <input type="checkbox" id="myCheckboxeight" />
-                                        <label for="myCheckboxeight">
-                                            <div>
-                                                <img src="{{ url('assets_admin/images/product/8.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                            </div>
-                                            <div class="dropdown">
-                                                <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="ri-more-fill"></i>
-                                                </a>
-
-                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                    </li>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="library-box">
-                                        <input type="checkbox" id="myCheckboxnine" />
-                                        <label for="myCheckboxnine">
-                                            <div>
-                                                <img src="{{ url('assets_admin/images/product/9.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                            </div>
-                                            <div class="dropdown">
-                                                <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="ri-more-fill"></i>
-                                                </a>
-
-                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                    </li>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="library-box">
-                                        <input type="checkbox" id="myCheckboxten" />
-                                        <label for="myCheckboxten">
-                                            <div>
-                                                <img src="{{ url('assets_admin/images/product/10.png', []) }}" class="img-fluid bg-img bg_size_content" alt="">
-                                            </div>
-                                            <div class="dropdown">
-                                                <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="ri-more-fill"></i>
-                                                </a>
-
-                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-download-2-line me-2"></i>Download</a>
-                                                    </li>
-                                                    <li><a class="dropdown-item d-flex align-items-center" href="#"><i class="ri-delete-bin-line me-2"></i>Delete</a>
-                                                    </li>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </label>
             </div>
             <div class="modal-footer">
                 <div class="left-part">
@@ -657,9 +401,10 @@
                     </div>
                 </div>
                 <div class="right-part">
-                    <a href="#" class="btn btn-solid">Insert Media</a>
+                    <button type="submit" class="btn btn-solid">Insert Media</button>
                 </div>
             </div>
+        </form>
         </div>
     </div>
 </div>
