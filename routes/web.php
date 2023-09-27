@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MediaController;
+use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\client\RegistrationController;
 use App\Http\Controllers\client\SessionsController;
 use App\Models\Category;
@@ -106,12 +107,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/attribute/create', function () {
         return view('admin.attribute-create');
     });
-    Route::get('/user', function () {
-        return view('admin.all-users');
-    });
-    Route::get('/user/create', function () {
-        return view('admin.user-create');
-    });
+
     Route::get('/attribute/create', function () {
         return view('admin.attribute-create');
     });
@@ -149,11 +145,11 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::put('/category/{category}', 'update');
         Route::get('/category/{category}/delete', 'destroy');
     });
-    // Route::group(['prefix' => 'category'], function () {
-    //     Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
-    //     Route::get('/create', [CategoryController::class, 'create'])->name('categories.create');
-    //     Route::post('/', [CategoryController::class, 'store'])->name('categories.store');
-    //     Route::put('/', [CategoryController::class, 'update'])->name('categories.update');
-    //     Route::get('/{category}/delete', [CategoryController::class, 'destroy'])->name('categories.destroy');
-    // });
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('/', [UserController::class, 'index']);
+        Route::get('/create', [UserController::class, 'create']);
+        Route::post('/', [UserController::class, 'store']);
+        Route::put('/', [UserController::class, 'update']);
+        Route::get('/{user}/delete', [UserController::class, 'destroy']);
+    });
 });

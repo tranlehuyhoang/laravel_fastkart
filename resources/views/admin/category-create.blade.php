@@ -22,7 +22,7 @@
                                     <div class="mb-4 row align-items-center">
                                         <label class="form-label-title col-sm-3 mb-0">Category Name</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" value="{{$category->category_name}}" style="" type="text" name="category_name" placeholder="Category Name">
+                                            <input class="form-control"  style="" type="text" name="category_name" placeholder="Category Name">
                                             @error('category_name')
                                             <small class="text-danger">{{$message}}</small>
                                         @enderror
@@ -38,7 +38,7 @@
                                                     <p>Choose an image file or drag it here.</p>
                                                 </div>
                                                 <input type="file" name="category_image" class="dropzone" onchange="previewImage(event, 'image-preview')">
-                                                <img id="image-preview" src="{{ asset($category->category_image) }}" alt="Image Preview" style="display: {{$category->category_image ? 'block' :'none'}};  height: 100%;">
+                                                <img id="image-preview" src=" " alt="Image Preview" style="display: none;  height: 100%;">
                                             </div>
                                         </div>
                                     </div>
@@ -52,7 +52,7 @@
                                                     <p>Choose an image file or drag it here.</p>
                                                 </div>
                                                 <input type="file" name="icon" class="dropzone" onchange="previewImage(event, 'icon-preview')">
-                                                <img id="icon-preview" src="{{ asset($category->icon) }}" alt="Icon Preview" style="display: {{$category->icon ? 'block' :'none'}};   height: 100%  ;">
+                                                <img id="icon-preview" src=" " alt="Icon Preview" style="display: none;   height: 100%  ;">
                                             </div>
                                         </div>
                                     </div>
@@ -60,7 +60,7 @@
                                     <div class="mb-4 row align-items-center">
                                         <label class="form-label-title col-sm-3 mb-0">Slug</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control"value="{{$category->slug}}" type="text" name="slug" placeholder="Slug">
+                                            <input class="form-control"  type="text" name="slug" placeholder="Slug">
                                             @error('slug')
                                             <small class="text-danger">{{$message}}</small>
                                         @enderror
