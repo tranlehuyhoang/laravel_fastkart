@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MediaController;
 use App\Http\Controllers\admin\UserController;
@@ -101,16 +102,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         return view('admin.product-create');
     });
 
-    Route::get('/attribute', function () {
-        return view('admin.attribute');
-    });
-    Route::get('/attribute/create', function () {
-        return view('admin.attribute-create');
-    });
 
-    Route::get('/attribute/create', function () {
-        return view('admin.attribute-create');
-    });
     Route::get('/role', function () {
         return view('admin.role');
     });
@@ -152,6 +144,14 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::post('/', [UserController::class, 'store']);
         Route::put('/{user}', [UserController::class, 'update']);
         Route::get('/{user}/delete', [UserController::class, 'destroy']);
+    });
+    Route::group(['prefix' => 'attribute'], function () {
+        Route::get('/', [AttributeController::class, 'index']);
+        Route::get('/create', [AttributeController::class, 'create']);
+        Route::get('/{attribute}/edit', [AttributeController::class, 'edit'])->name('admin.attribute.edit');
+        Route::post('/', [AttributeController::class, 'store']);
+        Route::put('/{attribute}', [AttributeController::class, 'update'])->name('admin.attribute.update');
+        Route::get('/{attribute}/delete', [AttributeController::class, 'destroy'])->name('admin.attribute.delete');
     });
 });
 Route::controller(HomeController::class)->group(function () {
