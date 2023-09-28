@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MediaController;
+use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\RegistrationController;
@@ -152,6 +153,14 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::post('/', [AttributeController::class, 'store']);
         Route::put('/{attribute}', [AttributeController::class, 'update'])->name('admin.attribute.update');
         Route::get('/{attribute}/delete', [AttributeController::class, 'destroy'])->name('admin.attribute.delete');
+    });
+    Route::group(['prefix' => 'product'], function () {
+        Route::get('/', [ProductController::class, 'index']);
+        Route::get('/create', [ProductController::class, 'create']);
+        Route::get('/{product}/edit', [ProductController::class, 'edit']);
+        Route::post('/', [ProductController::class, 'store']);
+        Route::put('/{product}', [ProductController::class, 'update']);
+        Route::get('/{product}/delete', [ProductController::class, 'destroy']);
     });
 });
 Route::controller(HomeController::class)->group(function () {
