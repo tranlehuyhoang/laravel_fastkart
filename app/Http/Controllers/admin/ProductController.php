@@ -14,7 +14,8 @@ class ProductController extends Controller
     {
         $products = Product::orderByDesc('id')->get();
         $categories = Category::orderByDesc('id')->get();
-        return view('admin.product.product', compact('products', 'categories'));
+        $attributes = Attribute::orderByDesc('id')->get();
+        return view('admin.product.product', compact('products', 'categories', 'attributes'));
     }
 
     public function create()

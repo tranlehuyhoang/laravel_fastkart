@@ -22,4 +22,12 @@ class Product extends Model
         'sale_date',
         'stock',
     ];
+    public function categorys()
+    {
+        return $this->belongsTo(Category::class, 'category', 'id');
+    }
+    public function attributes()
+    {
+        return $this->belongsTo(Attribute::class, 'attribute', 'id');
+    }
 }
