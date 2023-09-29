@@ -371,8 +371,12 @@
                                                 });
                                             </script>
 
-                                            <input type="hidden" name="price"
-                                                value="{{ $product->price - ($product->sale * $product->price) / 100 }}">
+                                            @if ($product->status == '1')
+                                                <input type="hidden" name="price"
+                                                    value="{{ $product->price - ($product->sale * $product->price) / 100 }}">
+                                            @else
+                                                <input type="hidden" name="price" value="{{ $product->price }}">
+                                            @endif
 
                                             <script>
                                                 // Lấy tất cả các phần tử cần thiết

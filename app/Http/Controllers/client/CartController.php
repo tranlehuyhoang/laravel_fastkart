@@ -10,7 +10,21 @@ class CartController extends Controller
 {
     public function index()
     {
-        $carts = Cart::orderByDesc('id')->get();
+        // Lấy người dùng đã xác thực
+        $user = auth()->user();
+
+        // Kiểm tra người dùng đã đăng nhập hay chưa
+        if ($user) {
+            // Lấy giỏ hàng của người dùng hiện tại có trường "order" bằng 0
+            $carts = Cart::where('user', $user->id)
+                ->where('order', 0)
+                ->orderByDesc('id')
+                ->get();
+        } else {
+            // Người dùng chưa đăng nhập, không có giỏ hàng
+            $carts = collect();
+        }
+
         return view('client.cart', compact('carts'));
     }
     public function add(Request $request)

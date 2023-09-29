@@ -16,10 +16,12 @@ class Cart extends Model
         'attribute',
         'price',
         'product',
+        'order',
+        'checkout',
+        'status',
     ];
     public function products()
     {
         return $this->belongsTo(Product::class, 'product', 'id');
     }
-   
 }

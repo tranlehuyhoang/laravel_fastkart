@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MediaController;
+
+use App\Http\Controllers\client\OrderController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\client\CartController;
@@ -40,9 +42,7 @@ Route::get('/blog-detail', function () {
 
 
 
-Route::get('/checkout', function () {
-    return view('client.checkout');
-});
+
 Route::get('/compare', function () {
     return view('client.compare');
 });
@@ -156,10 +156,14 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
 });
-Route::controller(CartController::class)->group(function () {
+Route::controller(CartController::class)->middleware('auth')->group(function () {
     Route::get('/cart', 'index');
     Route::post('/cart/create', 'add');
     Route::get('/cart/{cart}/delete', 'delete');
     Route::get('/cart/{cart}/plus', 'plus');
     Route::get('/cart/{cart}/minus', 'minus');
+});
+Route::controller(OrderController::class)->middleware('auth')->group(function () {
+    Route::get('/checkout', 'index');
+    Route::post('/checkout/create', 'create');
 });
