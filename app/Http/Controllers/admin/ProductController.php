@@ -69,13 +69,15 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        return view('admin.product.edit', compact('product'));
+        $categories = Category::orderByDesc('id')->get();
+        $attributes = Attribute::orderByDesc('id')->get();
+        return view('admin.product.product-edit', compact('product', 'categories', 'attributes'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'status' => 'required',
+            'status' => '',
             'image' => 'image',
             'name' => 'required',
             'price' => 'required|integer',
@@ -89,7 +91,7 @@ class ProductController extends Controller
         ]);
 
         $product = Product::findOrFail($id);
-        $product->status = $request->input('status');
+        $product->status = $request->status == true ? '1'  : '0';
 
         if ($request->hasFile('image')) {
             if ($product->image) {
@@ -100,8 +102,8 @@ class ProductController extends Controller
 
             $productImage = $request->file('image');
             $productImageName = time() . '_' . $productImage->getClientOriginalName();
-            $productImage->move(public_path('images'), $productImageName);
-            $product->image = 'images/' . $productImageName;
+            $productImage->move(public_path('product'), $productImageName);
+            $product->image = 'product/' . $productImageName;
         }
 
         $product->name = $request->input('name');
