@@ -27,8 +27,9 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
-            'status' => 'required',
+            'status' => '',
             'image' => 'required|image',
             'name' => 'required',
             'price' => 'required|integer',
@@ -42,13 +43,13 @@ class ProductController extends Controller
         ]);
 
         $product = new Product();
-        $product->status = $request->input('status');
+        $product->status = $request->status == true ? '1'  : '0';
 
         if ($request->hasFile('image')) {
             $productImage = $request->file('image');
             $productImageName = time() . '_' . $productImage->getClientOriginalName();
-            $productImage->move(public_path('images'), $productImageName);
-            $product->image = 'images/' . $productImageName;
+            $productImage->move(public_path('product/'), $productImageName);
+            $product->image = 'product/' . $productImageName;
         }
 
         $product->name = $request->input('name');
