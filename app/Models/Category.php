@@ -17,4 +17,13 @@ class Category extends Model
         'icon',
         'slug',
     ];
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category', 'id');
+    }
+
+    public function getProductsByCategory()
+    {
+        return $this->products();
+    }
 }

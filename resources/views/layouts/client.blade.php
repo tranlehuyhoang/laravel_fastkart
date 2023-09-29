@@ -8,7 +8,7 @@
     <meta name="description" content="Fastkart">
     <meta name="keywords" content="Fastkart">
     <meta name="author" content="Fastkart">
-    <link rel="icon" href="assets_client/images/favicon/4.png" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets_client/images/favicon/4.png') }}" type="image/x-icon">
     <title>On-demand last-mile delivery</title>
 
     <!-- Google font -->
@@ -21,26 +21,26 @@
         rel="stylesheet">
 
     <!-- bootstrap css -->
-    <link id="rtl-link" rel="stylesheet" type="text/css" href="assets_client/css/vendors/bootstrap.css">
+    <link id="rtl-link" rel="stylesheet" type="text/css" href="{{ asset('assets_client/css/vendors/bootstrap.css') }}">
 
     <!-- wow css -->
-    <link rel="stylesheet" href="assets_client/css/animate.min.css" />
+    <link rel="stylesheet" href="{{ asset('assets_client/css/animate.min.css') }}" />
 
     <!-- font-awesome css -->
-    <link rel="stylesheet" type="text/css" href="assets_client/css/vendors/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets_client/css/vendors/font-awesome.css') }}">
 
     <!-- feather icon css -->
-    <link rel="stylesheet" type="text/css" href="assets_client/css/vendors/feather-icon.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets_client/css/vendors/feather-icon.css') }}">
 
     <!-- slick css -->
-    <link rel="stylesheet" type="text/css" href="assets_client/css/vendors/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="assets_client/css/vendors/slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets_client/css/vendors/slick/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets_client/css/vendors/slick/slick-theme.css') }}">
 
     <!-- Iconly css -->
-    <link rel="stylesheet" type="text/css" href="assets_client/css/bulk-style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets_client/css/bulk-style.css') }}">
 
     <!-- Template css -->
-    <link id="color-link" rel="stylesheet" type="text/css" href="assets_client/css/style.css">
+    <link id="color-link" rel="stylesheet" type="text/css" href="{{ asset('assets_client/css/style.css') }}">
 </head>
 
 <body class="theme-color-2 bg-effect">
@@ -78,7 +78,8 @@
                                             aria-hidden="true" style="width: 818px;" tabindex="-1">
                                             <div class="timer-notification">
                                                 <h6>Something you love is now on sale!
-                                                    <a href="shop-left-sidebar.php" class="text-white" tabindex="-1">Buy
+                                                    <a href="shop-left-sidebar.php" class="text-white"
+                                                        tabindex="-1">Buy
                                                         Now
                                                         !</a>
                                                 </h6>
@@ -100,7 +101,8 @@
                                             aria-hidden="false" style="width: 818px;" tabindex="-1">
                                             <div class="timer-notification">
                                                 <h6>Something you love is now on sale!
-                                                    <a href="shop-left-sidebar.php" class="text-white" tabindex="-1">Buy
+                                                    <a href="shop-left-sidebar.php" class="text-white"
+                                                        tabindex="-1">Buy
                                                         Now
                                                         !</a>
                                                 </h6>
@@ -111,7 +113,8 @@
                                             <div class="timer-notification">
                                                 <h6><strong class="me-1">Welcome to Fastkart!</strong>Wrap new
                                                     offers/gift
-                                                    every signle day on Weekends.<strong class="ms-1">New Coupon Code:
+                                                    every signle day on Weekends.<strong class="ms-1">New Coupon
+                                                        Code:
                                                         Fast024
                                                     </strong>
 
@@ -122,7 +125,8 @@
                                             aria-hidden="true" style="width: 818px;" tabindex="-1">
                                             <div class="timer-notification">
                                                 <h6>Something you love is now on sale!
-                                                    <a href="shop-left-sidebar.php" class="text-white" tabindex="-1">Buy
+                                                    <a href="shop-left-sidebar.php" class="text-white"
+                                                        tabindex="-1">Buy
                                                         Now
                                                         !</a>
                                                 </h6>
@@ -142,28 +146,28 @@
                                 <div class="dropdown theme-form-select">
                                     <button class="btn dropdown-toggle" type="button" id="select-language"
                                         data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="assets_client/images/country/united-states.png"
+                                        <img src=" {{ asset('assets_client/images/country/united-states.png') }}"
                                             class="img-fluid blur-up lazyloaded" alt="">
                                         <span>English</span>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="select-language">
                                         <li>
                                             <a class="dropdown-item" href="javascript:void(0)" id="english">
-                                                <img src="assets_client/images/country/united-kingdom.png"
+                                                <img src=" {{ asset('assets_client/images/country/united-kingdom.png') }}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <span>English</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item" href="javascript:void(0)" id="france">
-                                                <img src="assets_client/images/country/germany.png"
+                                                <img src=" {{ asset('assets_client/images/country/germany.png') }}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <span>Germany</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="dropdown-item" href="javascript:void(0)" id="chinese">
-                                                <img src="assets_client/images/country/turkish.png"
+                                                <img src=" {{ asset('assets_client/images/country/turkish.png') }}"
                                                     class="img-fluid blur-up lazyload" alt="">
                                                 <span>Turki</span>
                                             </a>
@@ -209,7 +213,8 @@
                                 </span>
                             </button>
                             <a href="{{ url('/', []) }}" class="web-logo nav-logo">
-                                <img src="assets_client/images/logo/1.png" class="img-fluid blur-up lazyloaded" alt="">
+                                <img src=" {{ asset('assets_client/images/logo/1.png') }}"
+                                    class="img-fluid blur-up lazyloaded" alt="">
                             </a>
 
                             <div class="middle-box">
@@ -218,8 +223,8 @@
                                         data-bs-target="#locationModal">
                                         <span class="location-arrow">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                 class="feather feather-map-pin">
                                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                                 <circle cx="12" cy="10" r="3"></circle>
@@ -236,11 +241,12 @@
                                             aria-label="Recipient's username" aria-describedby="button-addon2">
                                         <button class="btn" type="button" id="button-addon2">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                 class="feather feather-search">
                                                 <circle cx="11" cy="11" r="8"></circle>
-                                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                                <line x1="21" y1="21" x2="16.65" y2="16.65">
+                                                </line>
                                             </svg>
                                         </button>
                                     </div>
@@ -252,21 +258,25 @@
                                     <div class="input-group">
                                         <span class="input-group-text">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                 class="feather feather-search font-light">
                                                 <circle cx="11" cy="11" r="8"></circle>
-                                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                                <line x1="21" y1="21" x2="16.65" y2="16.65">
+                                                </line>
                                             </svg>
                                         </span>
-                                        <input type="text" class="form-control search-type" placeholder="Search here..">
+                                        <input type="text" class="form-control search-type"
+                                            placeholder="Search here..">
                                         <span class="input-group-text close-search">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                 class="feather feather-x font-light">
-                                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                                                <line x1="18" y1="6" x2="6" y2="18">
+                                                </line>
+                                                <line x1="6" y1="6" x2="18" y2="18">
+                                                </line>
                                             </svg>
                                         </span>
                                     </div>
@@ -276,12 +286,14 @@
                                         <div class="delivery-login-box">
                                             <div class="delivery-icon">
                                                 <div class="search-box">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-search">
-                                                        <circle cx="11" cy="11" r="8"></circle>
-                                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                        height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="feather feather-search">
+                                                        <circle cx="11" cy="11" r="8">
+                                                        </circle>
+                                                        <line x1="21" y1="21" x2="16.65"
+                                                            y2="16.65"></line>
                                                     </svg>
                                                 </div>
                                             </div>
@@ -308,8 +320,8 @@
                                     <li class="right-side">
                                         <a href="wishlist.php" class="btn p-0 position-relative header-wishlist">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                 class="feather feather-heart">
                                                 <path
                                                     d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
@@ -330,7 +342,8 @@
                                                         d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
                                                     </path>
                                                 </svg>
-                                                <span class="position-absolute top-0 start-100 translate-middle badge">2
+                                                <span
+                                                    class="position-absolute top-0 start-100 translate-middle badge">2
                                                     <span class="visually-hidden">unread messages</span>
                                                 </span>
                                             </button>
@@ -340,7 +353,7 @@
                                                     <li class="product-box-contain">
                                                         <div class="drop-cart">
                                                             <a href="product-left-thumbnail.php" class="drop-image">
-                                                                <img src="assets_client/images/vegetable/product/1.png"
+                                                                <img src=" {{ asset('assets_client/images/vegetable/product/1.png') }}"
                                                                     class="blur-up lazyloaded" alt="">
                                                             </a>
 
@@ -359,7 +372,7 @@
                                                     <li class="product-box-contain">
                                                         <div class="drop-cart">
                                                             <a href="product-left-thumbnail.php" class="drop-image">
-                                                                <img src="assets_client/images/vegetable/product/2.png"
+                                                                <img src=" {{ asset('assets_client/images/vegetable/product/2.png') }}"
                                                                     class="blur-up lazyloaded" alt="">
                                                             </a>
 
@@ -384,80 +397,83 @@
 
                                                 <div class="button-group">
                                                     <a href="cart.php" class="btn btn-sm cart-button">View Cart</a>
-                                                    <a href="checkout.php" class="btn btn-sm cart-button theme-bg-color
+                                                    <a href="checkout.php"
+                                                        class="btn btn-sm cart-button theme-bg-color
                                                     text-white">Checkout</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
-                                    @if (!auth()->check() )
-                                    <li class="right-side onhover-dropdown">
-                                        <div class="delivery-login-box">
-                                            <div class="delivery-icon">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="feather feather-user">
-                                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                                    <circle cx="12" cy="7" r="4"></circle>
-                                                </svg>
+                                    @if (!auth()->check())
+                                        <li class="right-side onhover-dropdown">
+                                            <div class="delivery-login-box">
+                                                <div class="delivery-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                        height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="feather feather-user">
+                                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                        <circle cx="12" cy="7" r="4">
+                                                        </circle>
+                                                    </svg>
+                                                </div>
+                                                <div class="delivery-detail">
+
+                                                </div>
                                             </div>
-                                            <div class="delivery-detail">
-                                               
+
+                                            <div class="onhover-div onhover-div-login">
+                                                <ul class="user-box-name">
+                                                    <li class="product-box-contain">
+                                                        <i></i>
+                                                        <a href="{{ url('login', []) }}">Log In</a>
+                                                    </li>
+
+                                                    <li class="product-box-contain">
+                                                        <a href="{{ url('register', []) }}">Register</a>
+                                                    </li>
+
+                                                    <li class="product-box-contain">
+                                                        <a href="forgot.php">Forgot Password</a>
+                                                    </li>
+                                                </ul>
                                             </div>
-                                        </div>
-
-                                        <div class="onhover-div onhover-div-login">
-                                            <ul class="user-box-name">
-                                                <li class="product-box-contain">
-                                                    <i></i>
-                                                    <a href="{{ url('login', []) }}">Log In</a>
-                                                </li>
-
-                                                <li class="product-box-contain">
-                                                    <a href="{{ url('register', []) }}">Register</a>
-                                                </li>
-
-                                                <li class="product-box-contain">
-                                                    <a href="forgot.php">Forgot Password</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
+                                        </li>
                                     @else
-                                    <li class="right-side onhover-dropdown">
-                                        <div class="delivery-login-box">
-                                            <div class="delivery-icon">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="feather feather-user">
-                                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                                    <circle cx="12" cy="7" r="4"></circle>
-                                                </svg>
+                                        <li class="right-side onhover-dropdown">
+                                            <div class="delivery-login-box">
+                                                <div class="delivery-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                        height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="feather feather-user">
+                                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                        <circle cx="12" cy="7" r="4">
+                                                        </circle>
+                                                    </svg>
+                                                </div>
+                                                <div class="delivery-detail">
+                                                    <h6>Hello,</h6>
+                                                    <h5>{{ auth()->user()->name }}</h5>
+                                                </div>
                                             </div>
-                                            <div class="delivery-detail">
-                                                <h6>Hello,</h6>
-                                                <h5>{{ auth()->user()->name }}</h5>
-                                            </div>
-                                        </div>
 
-                                        <div class="onhover-div onhover-div-login">
-                                            <ul class="user-box-name">
-                                                
-                                                <li class="product-box-contain">
-                                                    <a href="{{ url('user-dashboard', []) }}">My Account</a>
-                                                </li>
-                                                <li class="product-box-contain">
-                                                    <i></i>
-                                                    <a href="{{ url('logout', []) }}">Log Out</a>
-                                                </li>
- 
-                                            </ul>
-                                        </div>
-                                    </li>
+                                            <div class="onhover-div onhover-div-login">
+                                                <ul class="user-box-name">
+
+                                                    <li class="product-box-contain">
+                                                        <a href="{{ url('user-dashboard', []) }}">My Account</a>
+                                                    </li>
+                                                    <li class="product-box-contain">
+                                                        <i></i>
+                                                        <a href="{{ url('logout', []) }}">Log Out</a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </li>
                                     @endif
-                                   
+
                                 </ul>
                             </div>
                         </div>
@@ -472,9 +488,10 @@
                     <div class="header-nav">
                         <div class="header-nav-left">
                             <button class="dropdown-category">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-align-left">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-align-left">
                                     <line x1="17" y1="10" x2="3" y2="10"></line>
                                     <line x1="21" y1="6" x2="3" y2="6"></line>
                                     <line x1="21" y1="14" x2="3" y2="14"></line>
@@ -494,7 +511,8 @@
                                 <ul class="category-list">
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="assets_client/svg/1/vegetable.svg" alt="">
+                                            <img src=" {{ asset('assets_client/svg/1/vegetable.svg') }}"
+                                                alt="">
                                             <h6>Vegetables &amp; Fruit</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -562,7 +580,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="assets_client/svg/1/cup.svg" alt="">
+                                            <img src=" {{ asset('assets_client/svg/1/cup.svg') }}" alt="">
                                             <h6>Beverages</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -601,7 +619,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="assets_client/svg/1/meats.svg" alt="">
+                                            <img src=" {{ asset('assets_client/svg/1/meats.svg') }}" alt="">
                                             <h6>Meats &amp; Seafood</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -660,7 +678,8 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="assets_client/svg/1/breakfast.svg" alt="">
+                                            <img src=" {{ asset('assets_client/svg/1/breakfast.svg') }}"
+                                                alt="">
                                             <h6>Breakfast &amp; Dairy</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -734,7 +753,7 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="assets_client/svg/1/frozen.svg" alt="">
+                                            <img src=" {{ asset('assets_client/svg/1/frozen.svg') }}" alt="">
                                             <h6>Frozen Foods</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -767,7 +786,8 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="assets_client/svg/1/biscuit.svg" alt="">
+                                            <img src=" {{ asset('assets_client/svg/1/biscuit.svg') }}"
+                                                alt="">
                                             <h6>Biscuits &amp; Snacks</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -820,7 +840,8 @@
 
                                     <li class="onhover-category-list">
                                         <a href="javascript:void(0)" class="category-name">
-                                            <img src="assets_client/svg/1/grocery.svg" alt="">
+                                            <img src=" {{ asset('assets_client/svg/1/grocery.svg') }}"
+                                                alt="">
                                             <h6>Grocery &amp; Staples</h6>
                                             <i class="fa-solid fa-angle-right"></i>
                                         </a>
@@ -899,7 +920,8 @@
 
                                                 <ul class="dropdown-menu">
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ url('/', []) }}">Kartshop</a>
+                                                        <a class="dropdown-item"
+                                                            href="{{ url('/', []) }}">Kartshop</a>
                                                     </li>
 
                                                 </ul>
@@ -915,7 +937,8 @@
                                                             Products</a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ url('seller-list', []) }}">Shop
+                                                        <a class="dropdown-item"
+                                                            href="{{ url('seller-list', []) }}">Shop
                                                             Seller</a>
                                                     </li>
 
@@ -932,7 +955,8 @@
                                                     <div class="row">
                                                         <div class="dropdown-column col-xl-3">
                                                             <h5 class="dropdown-header">Daily Vegetables</h5>
-                                                            <a class="dropdown-item" href="shop-left-sidebar.html">Beans
+                                                            <a class="dropdown-item"
+                                                                href="shop-left-sidebar.html">Beans
                                                                 &amp; Brinjals</a>
 
                                                             <a class="dropdown-item"
@@ -949,7 +973,8 @@
                                                             <a class="dropdown-item"
                                                                 href="shop-left-sidebar.html">Gourd, Cucumber</a>
 
-                                                            <a class="dropdown-item" href="shop-left-sidebar.html">Herbs
+                                                            <a class="dropdown-item"
+                                                                href="shop-left-sidebar.html">Herbs
                                                                 &amp; Sprouts</a>
 
                                                             <a href="demo-personal-portfolio.html"
@@ -958,7 +983,8 @@
 
                                                         <div class="dropdown-column col-xl-3">
                                                             <h5 class="dropdown-header">Baby Tender</h5>
-                                                            <a class="dropdown-item" href="shop-left-sidebar.html">Beans
+                                                            <a class="dropdown-item"
+                                                                href="shop-left-sidebar.html">Beans
                                                                 &amp; Brinjals</a>
 
                                                             <a class="dropdown-item"
@@ -979,7 +1005,8 @@
                                                                 href="shop-left-sidebar.html">Potatoes &amp;
                                                                 Tomatoes</a>
 
-                                                            <a href="shop-left-sidebar.html" class="dropdown-item">Peas
+                                                            <a href="shop-left-sidebar.html"
+                                                                class="dropdown-item">Peas
                                                                 &amp; Corn</a>
                                                         </div>
 
@@ -990,7 +1017,8 @@
                                                                 Artichokes</a>
 
                                                             <a class="dropdown-item"
-                                                                href="shop-left-sidebar.html">Avocados &amp; Peppers</a>
+                                                                href="shop-left-sidebar.html">Avocados &amp;
+                                                                Peppers</a>
 
                                                             <a class="dropdown-item"
                                                                 href="shop-left-sidebar.html">Broccoli &amp;
@@ -1034,7 +1062,8 @@
                                                     </li>
 
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ url('seller-list', []) }}">Seller
+                                                        <a class="dropdown-item"
+                                                            href="{{ url('seller-list', []) }}">Seller
                                                             Shops</a>
                                                     </li>
 
@@ -1048,9 +1077,9 @@
 
                         <div class="header-nav-right">
                             <button class="btn deal-button" data-bs-toggle="modal" data-bs-target="#deal-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-zap">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap">
                                     <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                                 </svg>
                                 <span>Deal Today</span>
@@ -1112,7 +1141,8 @@
                 <div class="row g-md-4 gy-sm-5 gy-2">
                     <div class="col-xxl-3 col-xl-4 col-sm-6">
                         <a href="index.html" class="foot-logo">
-                            <img src="assets_client/images/logo/3.png" class="img-fluid" alt="">
+                            <img src=" {{ asset('assets_client/images/logo/3.png') }}" class="img-fluid"
+                                alt="">
                         </a>
                         <p class="information-text">it is a long established fact that a reader will be distracted by
                             the readable content.</p>
@@ -1143,23 +1173,25 @@
                                 </a>
                             </li>
                         </ul>
-    
+
                         <div class="social-app mt-sm-4 mt-3 mb-4">
                             <ul>
                                 <li>
                                     <a href="https://play.google.com/store/apps" target="_blank">
-                                        <img src="assets_client/images/playstore.svg" class="blur-up lazyload" alt="">
+                                        <img src=" {{ asset('assets_client/images/playstore.svg') }}"
+                                            class="blur-up lazyload" alt="">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.apple.com/in/app-store/" target="_blank">
-                                        <img src="assets_client/images/appstore.svg" class="blur-up lazyload" alt="">
+                                        <img src=" {{ asset('assets_client/images/appstore.svg') }}"
+                                            class="blur-up lazyload" alt="">
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-    
+
                     <div class="col-xxl-2 col-xl-4 col-sm-6">
                         <div class="footer-title">
                             <h4>About Fastkart</h4>
@@ -1187,7 +1219,7 @@
                             </li>
                         </ul>
                     </div>
-    
+
                     <div class="col-xxl-2 col-xl-4 col-sm-6">
                         <div class="footer-title">
                             <h4>Useful Link</h4>
@@ -1215,7 +1247,7 @@
                             </li>
                         </ul>
                     </div>
-    
+
                     <div class="col-xxl-2 col-xl-4 col-sm-6">
                         <div class="footer-title">
                             <h4>Categories</h4>
@@ -1243,7 +1275,7 @@
                             </li>
                         </ul>
                     </div>
-    
+
                     <div class="col-xxl-3 col-xl-4 col-sm-6">
                         <div class="footer-title">
                             <h4>Store infomation</h4>
@@ -1257,7 +1289,7 @@
                                     </div>
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a href="javascript:void(0)">
                                     <div class="inform-box">
@@ -1266,7 +1298,7 @@
                                     </div>
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a href="javascript:void(0)">
                                     <div class="inform-box">
@@ -1275,7 +1307,7 @@
                                     </div>
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a href="javascript:void(0)">
                                     <div class="inform-box">
@@ -1288,7 +1320,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="sub-footer section-small-space">
                 <div class="left-footer">
                     <p>2022 Copyright By Themeforest Powered By Pixelstrap</p>
@@ -1296,19 +1328,20 @@
                 <div class="right-footer">
                     <ul class="payment-box">
                         <li>
-                            <img src="assets_client/images/icon/paymant/visa.png" alt="">
+                            <img src=" {{ asset('assets_client/images/icon/paymant/visa.png') }}" alt="">
                         </li>
                         <li>
-                            <img src="assets_client/images/icon/paymant/discover.png" alt="">
+                            <img src=" {{ asset('assets_client/images/icon/paymant/discover.png') }}" alt="">
                         </li>
                         <li>
-                            <img src="assets_client/images/icon/paymant/american.png" alt="">
+                            <img src=" {{ asset('assets_client/images/icon/paymant/american.png') }}" alt="">
                         </li>
                         <li>
-                            <img src="assets_client/images/icon/paymant/master-card.png" alt="">
+                            <img src=" {{ asset('assets_client/images/icon/paymant/master-card.png') }}"
+                                alt="">
                         </li>
                         <li>
-                            <img src="assets_client/images/icon/paymant/giro-pay.png" alt="">
+                            <img src=" {{ asset('assets_client/images/icon/paymant/giro-pay.png') }}" alt="">
                         </li>
                     </ul>
                 </div>
@@ -1316,7 +1349,7 @@
         </div>
     </footer>
     <!-- Footer End -->
-    
+
     <!-- Quick View Modal Box Start -->
     <div class="modal fade theme-modal view-modal" id="view" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -1331,10 +1364,11 @@
                     <div class="row g-sm-4 g-2">
                         <div class="col-lg-6">
                             <div class="slider-image">
-                                <img src="assets_client/images/product/category/1.jpg" class="img-fluid blur-up lazyload" alt="">
+                                <img src=" {{ asset('assets_client/images/product/category/1.jpg') }}"
+                                    class="img-fluid blur-up lazyload" alt="">
                             </div>
                         </div>
-    
+
                         <div class="col-lg-6">
                             <div class="right-sidebar-modal">
                                 <h4 class="title-name">Peanut Butter Bite Premium Butter Cookies 600 g</h4>
@@ -1360,7 +1394,7 @@
                                     <span class="ms-2">8 Reviews</span>
                                     <span class="ms-2 text-danger">6 sold in last 16 hours</span>
                                 </div>
-    
+
                                 <div class="product-detail">
                                     <h4>Product Details :</h4>
                                     <p>Candy canes sugar plum tart cotton candy chupa chups sugar plum chocolate I love.
@@ -1368,7 +1402,7 @@
                                         Marshmallow pie sweet sweet roll sesame snaps tiramisu jelly
                                         bear claw. Bonbon muffin I love carrot cake sugar plum dessert bonbon.</p>
                                 </div>
-    
+
                                 <ul class="brand-list">
                                     <li>
                                         <div class="brand-box">
@@ -1376,14 +1410,14 @@
                                             <h6>Black Forest</h6>
                                         </div>
                                     </li>
-    
+
                                     <li>
                                         <div class="brand-box">
                                             <h5>Product Code:</h5>
                                             <h6>W0690034</h6>
                                         </div>
                                     </li>
-    
+
                                     <li>
                                         <div class="brand-box">
                                             <h5>Product Type:</h5>
@@ -1391,7 +1425,7 @@
                                         </div>
                                     </li>
                                 </ul>
-    
+
                                 <div class="select-size">
                                     <h4>Cake Size :</h4>
                                     <select class="form-select select-form-size">
@@ -1403,7 +1437,7 @@
                                         <option value="pink">With Pink Roses</option>
                                     </select>
                                 </div>
-    
+
                                 <div class="modal-button">
                                     <button onclick="location.href = 'cart.html';"
                                         class="btn btn-md add-cart-button icon">Add
@@ -1420,10 +1454,10 @@
         </div>
     </div>
     <!-- Quick View Modal Box End -->
-    
+
     <!-- Location Modal Start -->
-    <div class="modal location-modal fade theme-modal" id="locationModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal location-modal fade theme-modal" id="locationModal" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1439,11 +1473,11 @@
                             <input type="search" class="form-control" placeholder="Search Your Area">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
-    
+
                         <div class="disabled-box">
                             <h6>Select a Location</h6>
                         </div>
-    
+
                         <ul class="location-select custom-height">
                             <li>
                                 <a href="javascript:void(0)">
@@ -1451,63 +1485,63 @@
                                     <span>Min: $130</span>
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a href="javascript:void(0)">
                                     <h6>Arizona</h6>
                                     <span>Min: $150</span>
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a href="javascript:void(0)">
                                     <h6>California</h6>
                                     <span>Min: $110</span>
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a href="javascript:void(0)">
                                     <h6>Colorado</h6>
                                     <span>Min: $140</span>
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a href="javascript:void(0)">
                                     <h6>Florida</h6>
                                     <span>Min: $160</span>
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a href="javascript:void(0)">
                                     <h6>Georgia</h6>
                                     <span>Min: $120</span>
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a href="javascript:void(0)">
                                     <h6>Kansas</h6>
                                     <span>Min: $170</span>
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a href="javascript:void(0)">
                                     <h6>Minnesota</h6>
                                     <span>Min: $120</span>
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a href="javascript:void(0)">
                                     <h6>New York</h6>
                                     <span>Min: $110</span>
                                 </a>
                             </li>
-    
+
                             <li>
                                 <a href="javascript:void(0)">
                                     <h6>Washington</h6>
@@ -1521,7 +1555,7 @@
         </div>
     </div>
     <!-- Location Modal End -->
-    
+
     <!-- Deal Box Modal Start -->
     <div class="modal fade theme-modal deal-modal" id="deal-box" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -1542,48 +1576,52 @@
                             <li class="list-1">
                                 <div class="deal-offer-contain">
                                     <a href="shop-left-sidebar.html" class="deal-image">
-                                        <img src="assets_client/images/vegetable/product/10.png" class="blur-up lazyload" alt="">
+                                        <img src=" {{ asset('assets_client/images/vegetable/product/10.png') }}"
+                                            class="blur-up lazyload" alt="">
                                     </a>
-    
+
                                     <a href="shop-left-sidebar.html" class="deal-contain">
                                         <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
                                         <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
                                     </a>
                                 </div>
                             </li>
-    
+
                             <li class="list-2">
                                 <div class="deal-offer-contain">
                                     <a href="shop-left-sidebar.html" class="deal-image">
-                                        <img src="assets_client/images/vegetable/product/11.png" class="blur-up lazyload" alt="">
+                                        <img src=" {{ asset('assets_client/images/vegetable/product/11.png') }}"
+                                            class="blur-up lazyload" alt="">
                                     </a>
-    
+
                                     <a href="shop-left-sidebar.html" class="deal-contain">
                                         <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
                                         <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
                                     </a>
                                 </div>
                             </li>
-    
+
                             <li class="list-3">
                                 <div class="deal-offer-contain">
                                     <a href="shop-left-sidebar.html" class="deal-image">
-                                        <img src="assets_client/images/vegetable/product/12.png" class="blur-up lazyload" alt="">
+                                        <img src=" {{ asset('assets_client/images/vegetable/product/12.png') }}"
+                                            class="blur-up lazyload" alt="">
                                     </a>
-    
+
                                     <a href="shop-left-sidebar.html" class="deal-contain">
                                         <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
                                         <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
                                     </a>
                                 </div>
                             </li>
-    
+
                             <li class="list-1">
                                 <div class="deal-offer-contain">
                                     <a href="shop-left-sidebar.html" class="deal-image">
-                                        <img src="assets_client/images/vegetable/product/13.png" class="blur-up lazyload" alt="">
+                                        <img src=" {{ asset('assets_client/images/vegetable/product/13.png') }}"
+                                            class="blur-up lazyload" alt="">
                                     </a>
-    
+
                                     <a href="shop-left-sidebar.html" class="deal-contain">
                                         <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
                                         <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
@@ -1597,11 +1635,11 @@
         </div>
     </div>
     <!-- Deal Box Modal End -->
-    
+
     <!-- Cookie Bar Box Start -->
-   
+
     <!-- Cookie Bar Box End -->
-    
+
     <!-- Items section Start -->
     <div class="button-item">
         <button class="item-btn btn text-white">
@@ -1618,21 +1656,21 @@
         </h6>
         <ul class="items-image">
             <li>
-                <img src="assets_client/images/veg-3/cate1/1.png" alt="">
+                <img src=" {{ asset('assets_client/images/veg-3/cate1/1.png') }}" alt="">
             </li>
             <li>
-                <img src="assets_client/images/veg-3/cate1/2.png" alt="">
+                <img src=" {{ asset('assets_client/images/veg-3/cate1/2.png') }}" alt="">
             </li>
             <li>+3</li>
         </ul>
         <button onclick="location.href = 'cart.html';" class="btn item-button btn-sm fw-bold">$ 20.70</button>
     </div>
     <!-- Items section End -->
-    
+
     <!-- Tap to top start -->
     <div class="theme-option">
-      
-    
+
+
         <div class="back-to-top">
             <a id="back-to-top" href="#">
                 <i class="fas fa-chevron-up"></i>
@@ -1640,59 +1678,59 @@
         </div>
     </div>
     <!-- Tap to top end -->
-    
+
     <!-- Bg overlay Start -->
     <div class="bg-overlay"></div>
     <!-- Bg overlay End -->
-    
+
     <!-- latest jquery-->
-    <script src="assets_client/js/jquery-3.6.0.min.js"></script>
-    
+    <script src=" {{ asset('assets_client/js/jquery-3.6.0.min.js') }}"></script>
+
     <!-- jquery ui-->
-    <script src="assets_client/js/jquery-ui.min.js"></script>
-    
+    <script src=" {{ asset('assets_client/js/jquery-ui.min.js') }}"></script>
+
     <!-- Bootstrap js-->
-    <script src="assets_client/js/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="assets_client/js/bootstrap/popper.min.js"></script>
-    
+    <script src=" {{ asset('assets_client/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
+    <script src=" {{ asset('assets_client/js/bootstrap/popper.min.js') }}"></script>
+
     <!-- feather icon js-->
-    <script src="assets_client/js/feather/feather.min.js"></script>
-    <script src="assets_client/js/feather/feather-icon.js"></script>
-    
+    <script src=" {{ asset('assets_client/js/feather/feather.min.js') }}"></script>
+    <script src=" {{ asset('assets_client/js/feather/feather-icon.js') }}"></script>
+
     <!-- Lazyload Js -->
-    <script src="assets_client/js/lazysizes.min.js"></script>
-    
+    <script src=" {{ asset('assets_client/js/lazysizes.min.js') }}"></script>
+
     <!-- Slick js-->
-    <script src="assets_client/js/slick/slick.js"></script>
-    <script src="assets_client/js/bootstrap/bootstrap-notify.min.js"></script>
-    <script src="assets_client/js/slick/custom_slick.js"></script>
-    
+    <script src=" {{ asset('assets_client/js/slick/slick.js') }}"></script>
+    <script src=" {{ asset('assets_client/js/bootstrap/bootstrap-notify.min.js') }}"></script>
+    <script src=" {{ asset('assets_client/js/slick/custom_slick.js') }}"></script>
+
     <!-- Auto Height Js -->
-    <script src="assets_client/js/auto-height.js"></script>
-    
+    <script src=" {{ asset('assets_client/js/auto-height.js') }}"></script>
+
     <!-- Quantity Js -->
-    <script src="assets_client/js/quantity.js"></script>
-    
+    <script src=" {{ asset('assets_client/js/quantity.js') }}"></script>
+
     <!-- Timer Js -->
-    <script src="assets_client/js/timer1.js"></script>
-    <script src="assets_client/js/timer2.js"></script>
-    <script src="assets_client/js/timer3.js"></script>
-    <script src="assets_client/js/timer4.js"></script>
-    
+    <script src=" {{ asset('assets_client/js/timer1.js') }}"></script>
+    <script src=" {{ asset('assets_client/js/timer2.js') }}"></script>
+    <script src=" {{ asset('assets_client/js/timer3.js') }}"></script>
+    <script src=" {{ asset('assets_client/js/timer4.js') }}"></script>
+
     <!-- Fly Cart Js -->
-    <script src="assets_client/js/fly-cart.js"></script>
-    
+    <script src=" {{ asset('assets_client/js/fly-cart.js') }}"></script>
+
     <!-- WOW js -->
-    <script src="assets_client/js/wow.min.js"></script>
-    <script src="assets_client/js/apexchart.js"></script>
-    <script src="assets_client/js/custom-wow.js"></script>
-    
+    <script src=" {{ asset('assets_client/js/wow.min.js') }}"></script>
+    <script src=" {{ asset('assets_client/js/apexchart.js') }}"></script>
+    <script src=" {{ asset('assets_client/js/custom-wow.js') }}"></script>
+
     <!-- script js -->
-    <script src="assets_client/js/script.js"></script>
-    <script src="assets_client/js/custom-chart.js"></script>
-    
+    <script src=" {{ asset('assets_client/js/script.js') }}"></script>
+    <script src=" {{ asset('assets_client/js/custom-chart.js') }}"></script>
+
     <!-- thme setting js -->
-    <script src="assets_client/js/theme-setting.js"></script>
-    </body>
-    
-    </html>
+    <script src=" {{ asset('assets_client/js/theme-setting.js') }}"></script>
+</body>
+
+</html>

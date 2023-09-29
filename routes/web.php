@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\MediaController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\client\HomeController;
+use App\Http\Controllers\client\ProductDetailController;
 use App\Http\Controllers\client\RegistrationController;
 use App\Http\Controllers\client\SessionsController;
 use App\Models\Category;
@@ -22,12 +23,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::controller(ProductDetailController::class)->group(function () {
+    Route::get('/product/{product} ', 'index');
+});
 Route::get('/404', function () {
     return view('client.404');
 });
-Route::get('/', function () {
-    return view('client.home');
-});
+
 Route::get('/blog', function () {
     return view('client.blog');
 });
@@ -53,9 +55,7 @@ Route::get('/forgot', function () {
 Route::get('/order-success', function () {
     return view('client.order-success');
 });
-Route::get('/product-detail', function () {
-    return view('client.product-detail');
-});
+
 Route::get('/shop', function () {
     return view('client.shop');
 });
@@ -102,15 +102,6 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/product/create', function () {
         return view('admin.product-create');
     });
-
-
-    Route::get('/role', function () {
-        return view('admin.role');
-    });
-    Route::get('/role/create', function () {
-        return view('admin.role-create');
-    });
-
     Route::get('/order-list', function () {
         return view('admin.order-list');
     });
@@ -165,7 +156,4 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 });
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
-    Route::post('/media', 'store');
-    Route::post('/medias', 'deleteMultiple');
-    Route::get('media/{media}/delete', 'destroy');
 });

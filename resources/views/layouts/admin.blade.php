@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="{{ asset('assets_admin/css/linearicon.css') }}">
 
     <!-- fontawesome css -->
- 
+
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_admin/css/vendors/font-awesome.css') }}">
 
     <!-- Themify icon css-->
@@ -71,8 +71,10 @@
                 <div class="header-logo-wrapper p-0">
                     <div class="logo-wrapper">
                         <a href="{{ url('admin', []) }}">
-                            <img class="img-fluid main-logo" src="{{ asset('assets_admin/images/logo/1.png') }}" alt="logo">
-                            <img class="img-fluid white-logo" src="{{ asset('assets_admin/images/logo/1-white.png') }}" alt="logo">
+                            <img class="img-fluid main-logo" src="{{ asset('assets_admin/images/logo/1.png') }}"
+                                alt="logo">
+                            <img class="img-fluid white-logo" src="{{ asset('assets_admin/images/logo/1-white.png') }}"
+                                alt="logo">
                         </a>
                     </div>
                     <div class="toggle-sidebar">
@@ -152,7 +154,8 @@
                         </li>
                         <li class="profile-nav onhover-dropdown pe-0 me-0">
                             <div class="media profile-media">
-                                <img class="user-profile rounded-circle" src="{{ asset(auth()->user()->image) }}" alt="">
+                                <img class="user-profile rounded-circle" src="{{ asset(auth()->user()->image) }}"
+                                    alt="">
                                 <div class="user-name-hide media-body">
                                     <span>{{ auth()->user()->name }}</span>
                                     <p class="mb-0 font-roboto">Admin<i class="middle ri-arrow-down-s-line"></i></p>
@@ -204,7 +207,8 @@
                 <div>
                     <div class="logo-wrapper logo-wrapper-center">
                         <a href="{{ url('admin', []) }}" data-bs-original-title="" title="">
-                            <img class="img-fluid for-white" src="{{ asset('assets_admin/images/logo/full-white.png') }}" alt="logo">
+                            <img class="img-fluid for-white"
+                                src="{{ asset('assets_admin/images/logo/full-white.png') }}" alt="logo">
                         </a>
                         <div class="back-btn">
                             <i class="fa fa-angle-left"></i>
@@ -215,9 +219,10 @@
                     </div>
                     <div class="logo-icon-wrapper">
                         <a href="{{ url('admin', []) }}">
-                            <img class="img-fluid main-logo main-white" src="{{ asset('assets_admin/images/logo/logo.png') }}" alt="logo">
-                            <img class="img-fluid main-logo main-dark" src="{{ asset('assets_admin/images/logo/logo-white.png') }}"
-                                alt="logo">
+                            <img class="img-fluid main-logo main-white"
+                                src="{{ asset('assets_admin/images/logo/logo.png') }}" alt="logo">
+                            <img class="img-fluid main-logo main-dark"
+                                src="{{ asset('assets_admin/images/logo/logo-white.png') }}" alt="logo">
                         </a>
                     </div>
                     <nav class="sidebar-main">
@@ -299,23 +304,11 @@
                                     </ul>
                                 </li>
 
-                                <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title" href="javascript:void(0)">
-                                        <i class="ri-user-3-line"></i>
-                                        <span>Roles</span>
-                                    </a>
-                                    <ul class="sidebar-submenu">
-                                        <li>
-                                            <a href="{{ url('admin/role', []) }}">All roles</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ url('admin/role/create', []) }}">Create Role</a>
-                                        </li>
-                                    </ul>
-                                </li>
+
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="{{ url('admin/media', []) }}">
+                                    <a class="sidebar-link sidebar-title link-nav"
+                                        href="{{ url('admin/media', []) }}">
                                         <i class="ri-price-tag-3-line"></i>
                                         <span>Media</span>
                                     </a>
@@ -360,7 +353,8 @@
 
 
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title link-nav" href="{{ url('admin/product-review', []) }}">
+                                    <a class="sidebar-link sidebar-title link-nav"
+                                        href="{{ url('admin/product-review', []) }}">
                                         <i class="ri-star-line"></i>
                                         <span>Product Review</span>
                                     </a>
@@ -383,18 +377,19 @@
                 </div>
             </div>
             <!-- Page Sidebar Ends-->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog  modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-body">
                             <h5 class="modal-title" id="staticBackdropLabel">Logging Out</h5>
                             <p>Are you sure you want to log out?</p>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
 
                             <div class="button-box">
                                 <button type="button" class="btn btn--no" data-bs-dismiss="modal">No</button>
-                                <a href="{{ url('logout', []) }}" class="btn  btn--yes btn-primary" >Yes</a>
+                                <a href="{{ url('logout', []) }}" class="btn  btn--yes btn-primary">Yes</a>
                             </div>
                         </div>
                     </div>
@@ -405,7 +400,7 @@
         </div>
     </div>
     <!-- page-wrapper End-->
-    
+
     <!-- Modal Start -->
     {{-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -424,27 +419,27 @@
         </div>
     </div> --}}
     <!-- Modal End -->
-    
+
     <!-- latest js -->
     <script src="{{ asset('assets_admin/js/jquery-3.6.0.min.js') }}"></script>
-    
+
     <!-- Bootstrap js -->
     <script src="{{ asset('assets_admin/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
-    
+
     <!-- feather icon js -->
     <script src="{{ asset('assets_admin/js/icons/feather-icon/feather.min.js') }}"></script>
     <script src="{{ asset('assets_admin/js/icons/feather-icon/feather-icon.js') }}"></script>
-    
+
     <!-- scrollbar simplebar js -->
     <script src="{{ asset('assets_admin/js/scrollbar/simplebar.js') }}"></script>
     <script src="{{ asset('assets_admin/js/scrollbar/custom.js') }}"></script>
-    
+
     <!-- Sidebar jquery -->
     <script src="{{ asset('assets_admin/js/config.js') }}"></script>
-    
+
     <!-- tooltip init js -->
     <script src="{{ asset('assets_admin/js/tooltip-init.js') }}"></script>
-    
+
     <!-- Plugins JS -->
     <script src="{{ asset('assets_admin/js/sidebar-menu.js') }}"></script>
     <script src="{{ asset('assets_admin/js/notify/bootstrap-notify.min.js') }}"></script>
@@ -456,23 +451,23 @@
     <script src="{{ asset('assets_admin/js/chart/apex-chart/apex-chart.js') }}"></script>
     <script src="{{ asset('assets_admin/js/chart/apex-chart/stock-prices.js') }}"></script>
     <script src="{{ asset('assets_admin/js/chart/apex-chart/chart-custom1.js') }}"></script>
-    
-    
+
+
     <!-- slick slider js -->
     <script src="{{ asset('assets_admin/js/slick.min.js') }}"></script>
     <script src="{{ asset('assets_admin/js/custom-slick.js') }}"></script>
-    
+
     <!-- customizer js -->
     <script src="{{ asset('assets_admin/js/customizer.js') }}"></script>
-    
+
     <!-- ratio js -->
     <script src="{{ asset('assets_admin/js/ratio.js') }}"></script>
-    
+
     <!-- sidebar effect -->
     <script src="{{ asset('assets_admin/js/sidebareffect.js') }}"></script>
-    
+
     <!-- Theme js -->
     <script src="{{ asset('assets_admin/js/script.js') }}"></script>
-    </body>
-    
-    </html>
+</body>
+
+</html>
