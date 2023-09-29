@@ -12,6 +12,7 @@ use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\ProductDetailController;
 use App\Http\Controllers\client\RegistrationController;
 use App\Http\Controllers\client\SessionsController;
+use App\Http\Controllers\client\UserDashboardController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -58,9 +59,7 @@ Route::get('/order-success', function () {
 Route::get('/shop', function () {
     return view('client.shop');
 });
-Route::get('/user-dashboard', function () {
-    return view('client.user-dashboard');
-});
+
 Route::get('/seller-become', function () {
     return view('client.seller-become');
 });
@@ -167,3 +166,9 @@ Route::controller(OrderController::class)->middleware('auth')->group(function ()
     Route::get('/checkout', 'index');
     Route::post('/checkout/create', 'create');
 });
+Route::controller(UserDashboardController::class)->middleware('auth')->group(function () {
+    Route::get('/user', 'index');
+});
+// Route::get('/user-dashboard', function () {
+//     return view('client.user-dashboard');
+// });
