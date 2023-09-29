@@ -30,4 +30,8 @@ class Product extends Model
     {
         return $this->belongsTo(Attribute::class, 'attribute', 'id');
     }
+    public function productsWithSameCategory()
+    {
+        return $this->hasMany(Product::class, 'category', 'category')->where('id', '!=', $this->id);
+    }
 }

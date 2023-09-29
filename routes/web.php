@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MediaController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\ProductDetailController;
 use App\Http\Controllers\client\RegistrationController;
@@ -37,9 +38,7 @@ Route::get('/blog-detail', function () {
     return view('client.blog-detail');
 });
 
-Route::get('/cart', function () {
-    return view('client.cart');
-});
+
 
 Route::get('/checkout', function () {
     return view('client.checkout');
@@ -156,4 +155,8 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
 });
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
+});
+Route::controller(CartController::class)->group(function () {
+    Route::get('/cart', 'index');
+    Route::post('/cart/create', 'add');
 });
