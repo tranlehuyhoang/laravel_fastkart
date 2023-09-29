@@ -159,4 +159,7 @@ Route::controller(HomeController::class)->group(function () {
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart', 'index');
     Route::post('/cart/create', 'add');
+    Route::get('/cart/{cart}/delete', 'delete');
+    Route::get('/cart/{cart}/plus', 'plus');
+    Route::get('/cart/{cart}/minus', 'minus');
 });

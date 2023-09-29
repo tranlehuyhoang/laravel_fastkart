@@ -16,7 +16,6 @@ class CartController extends Controller
     public function add(Request $request)
     {
         // Lấy dữ liệu từ request
-        // dd($request);
         $data = $request->validate([
             'user' => 'required',
             'quantity' => 'required',
@@ -25,8 +24,12 @@ class CartController extends Controller
             'product' => 'required',
         ]);
 
-        // Tạo mới một mục trong giỏ hàng
-        $cartItem = Cart::create($data);
+        // Kiểm tra sự tồn tại của mục trong giỏ hàng
+        $cartItem = Cart::firstOrCreate([
+            'user' => $data['user'],
+            'product' => $data['product'],
+            'attribute' => $data['attribute'],
+        ], $data);
 
         // Trả về kết quả thành công hoặc thông báo lỗi
         return redirect('cart');
@@ -50,15 +53,30 @@ class CartController extends Controller
         return response()->json(['message' => 'Quantity updated', 'cart_item' => $cartItem], 200);
     }
 
-    public function delete($cartItemId)
+    public function delete(Cart $cart)
     {
-        // Tìm mục trong giỏ hàng cần xóa
-        $cartItem = Cart::findOrFail($cartItemId);
 
+        // dd($cart);
         // Xóa mục trong giỏ hàng
-        $cartItem->delete();
+        $cart->delete();
+    }
+    public function plus(Cart $cart)
+    {
+        $cart->quantity += 1;
+        $cart->save();
 
-        // Trả về kết quả thành công hoặc thông báo lỗi
-        return response()->json(['message' => 'Item deleted from cart'], 200);
+        // Thực hiện các hành động khác sau khi tăng số lượng của cart
+
+
+    }
+
+    public function minus(Cart $cart)
+    {
+        if ($cart->quantity > 1) {
+            $cart->quantity -= 1;
+            $cart->save();
+
+            // Thực hiện các hành động khác sau khi giảm số lượng của cart
+        }
     }
 }

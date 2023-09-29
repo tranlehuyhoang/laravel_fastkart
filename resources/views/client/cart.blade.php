@@ -78,7 +78,7 @@
                                                                                 aria-hidden="true"></i>
                                                                         </button>
                                                                         <input class="form-control input-number qty-input"
-                                                                            type="text" name="quantity" value="0">
+                                                                            type="text" name="quantity" value="">
                                                                         <button type="button" class="btn qty-right-plus"
                                                                             data-type="plus" data-field="">
                                                                             <i class="fa fa-plus ms-0"
@@ -108,16 +108,65 @@
                                                     <div class="cart_qty">
                                                         <div class="input-group">
                                                             <button type="button" class="btn qty-left-minus"
-                                                                data-type="minus" data-field="">
+                                                                data-type="minus" data-field=""
+                                                                onclick="minusQuantity({{ $cart->id }}, {{ $cart->price }})">
                                                                 <i class="fa fa-minus ms-0" aria-hidden="true"></i>
                                                             </button>
+
                                                             <input class="form-control input-number qty-input"
-                                                                type="text" name="quantity"
-                                                                value="{{ $cart->quantity }}">
+                                                                type="number" name="quantity"
+                                                                value="{{ $cart->quantity }}"
+                                                                onchange="console.log('object')">
+
                                                             <button type="button" class="btn qty-right-plus"
-                                                                data-type="plus" data-field="">
+                                                                data-type="plus" data-field=""
+                                                                onclick="plusQuantity({{ $cart->id }}, {{ $cart->price }})">
                                                                 <i class="fa fa-plus ms-0" aria-hidden="true"></i>
                                                             </button>
+
+                                                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                                            <script>
+                                                                function plusQuantity(cartId, price) {
+                                                                    console.log('Cart ID:', cartId);
+                                                                    console.log('Price:', price);
+
+                                                                    $.ajax({
+                                                                        url: '/cart/' + cartId + '/plus',
+                                                                        type: 'GET',
+
+                                                                    });
+                                                                    // console.log(c)
+                                                                    var currentTotal = parseFloat($('.total-' + cartId).text().replace('$', ''));
+                                                                    var priceNew = parseFloat(price)
+                                                                    // Tính toán giá trị mới    
+                                                                    var newTotal = currentTotal + priceNew;
+                                                                    console.log(currentTotal)
+                                                                    console.log(priceNew)
+
+                                                                    // Cập nhật giá trị tổng
+                                                                    $('.total-' + cartId).text('$' + newTotal);
+                                                                }
+
+                                                                function minusQuantity(cartId, price) {
+                                                                    console.log('Cart ID:', cartId);
+                                                                    console.log('Price:', price);
+
+                                                                    $.ajax({
+                                                                        url: '/cart/' + cartId + '/minus',
+                                                                        type: 'GET',
+
+                                                                    });
+                                                                    var currentTotal = parseFloat($('.total-' + cartId).text().replace('$', ''));
+                                                                    var priceNew = parseFloat(price)
+                                                                    // Tính toán giá trị mới    
+                                                                    var newTotal = currentTotal - priceNew;
+                                                                    console.log(currentTotal)
+                                                                    console.log(priceNew)
+
+                                                                    // Cập nhật giá trị tổng
+                                                                    $('.total-' + cartId).text('$' + newTotal);
+                                                                }
+                                                            </script>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -125,13 +174,42 @@
 
                                             <td class="subtotal">
                                                 <h4 class="table-title text-content">Total</h4>
-                                                <h5>${{ $cart->price * $cart->quantity }}</h5>
+                                                <h5 class="total-{{ $cart->id }}">
+                                                    {{ $cart->price * $cart->quantity }}
+                                                </h5>
                                             </td>
 
                                             <td class="save-remove">
                                                 <h4 class="table-title text-content">Action</h4>
                                                 <a class="save notifi-wishlist" href="javascript:void(0)">Save for later</a>
-                                                <a class="remove close_button" href="javascript:void(0)">Remove</a>
+                                                <a class="remove close_button" style="cursor: pointer"
+                                                    onclick="deleteCart({{ $cart->id }})">Remove</a>
+
+                                                <script>
+                                                    function deleteCart(cartId) {
+                                                        event.preventDefault();
+
+                                                        // Gửi yêu cầu Ajax để xóa giỏ hàng dựa trên ID
+                                                        fetch('/cart/' + cartId + '/delete', {
+                                                                method: 'GET',
+                                                                headers: {
+                                                                    'Content-Type': 'application/json',
+                                                                    'X-CSRF-TOKEN': '{{ csrf_token() }}' // Thêm mã CSRF token (nếu cần thiết)
+                                                                }
+                                                            })
+                                                            .then(function(response) {
+                                                                if (response.ok) {
+                                                                    console.log('Cart with ID', cartId, 'deleted successfully.');
+                                                                    // Thực hiện các hành động cần thiết sau khi xóa giỏ hàng thành công
+                                                                } else {
+                                                                    console.error('Failed to delete cart with ID', cartId);
+                                                                }
+                                                            })
+                                                            .catch(function(error) {
+                                                                console.error('Error occurred while deleting cart with ID', cartId, ':', error);
+                                                            });
+                                                    }
+                                                </script>
                                             </td>
                                         </tr>
                                     @endforeach

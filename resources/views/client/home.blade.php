@@ -548,6 +548,12 @@
                                 <div class="product-box-4">
                                     <div class="product-image">
                                         <div class="label-flex">
+                                            @if ($product->status == '1')
+                                                <div class="discount">
+                                                    <label>-{{ $product->sale }}%</label>
+                                                </div>
+                                            @else
+                                            @endif
                                             <button class="btn p-0 wishlist btn-wishlist notifi-wishlist">
                                                 <i class="iconly-Heart icli"></i>
                                             </button>
@@ -639,7 +645,15 @@
                                 <div class="col-xxl-2 col-lg-3 col-md-4 col-6 wow fadeInUp">
                                     <div class="product-box-4">
                                         <div class="product-image">
+
                                             <div class="label-flex">
+                                                @if ($product->status == '1')
+                                                    <div class="discount">
+                                                        <label>-{{ $product->sale }}%</label>
+                                                    </div>
+                                                @else
+                                                @endif
+
                                                 <button class="btn p-0 wishlist btn-wishlist notifi-wishlist">
                                                     <i class="iconly-Heart icli"></i>
                                                 </button>
