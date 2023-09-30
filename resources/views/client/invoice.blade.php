@@ -87,7 +87,7 @@
         }
 
         .order-table {
-            background-image: url(./assets_client/order-poster.jpg);
+
             background-position: center;
             background-repeat: no-repeat;
             border-radius: 5px;
@@ -228,35 +228,24 @@
                                     <table class="product-table" align="center" border="0" cellpadding="0"
                                         cellspacing="0" width="100%">
                                         <tbody>
-                                            <tr>
-                                                <td
-                                                    style="padding: 28px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
-                                                    <img src="{{ asset('assets_client/product-4.png') }}"
-                                                        alt="">
-                                                </td>
-                                                <td
-                                                    style="padding: 28px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
-                                                    <ul class="product-detail">
-                                                        <li>Green Capsicum#1</li>
-                                                        <li>QTY: <span>01</span></li>
-                                                        <li>Price: <span>$35.15</span></li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
+                                            @foreach ($carts as $cart)
+                                                <tr>
+                                                    <td
+                                                        style="padding: 28px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
+                                                        <img src="{{ asset($cart->products->image) }}" alt="">
+                                                    </td>
+                                                    <td
+                                                        style="padding: 28px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
+                                                        <ul class="product-detail">
+                                                            <li>Green Capsicum#1</li>
+                                                            <li>QTY: <span>{{ $cart->quantity }}</span></li>
+                                                            <li>Price: <span>${{ $cart->price }}</span></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
 
-                                            <tr>
-                                                <td style="padding-top: 28px;">
-                                                    <img src="{{ asset('assets_client/product-5.png') }}"
-                                                        alt="">
-                                                </td>
-                                                <td style="padding-top: 28px;">
-                                                    <ul class="product-detail">
-                                                        <li>Organic Orange#2</li>
-                                                        <li>QTY: <span>01</span></li>
-                                                        <li>Price: <span>$35.15</span></li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
+
                                         </tbody>
                                     </table>
                                 </td>
@@ -310,7 +299,8 @@
                     </table>
 
                     <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
-                        class="order-table">
+                        class="order-table"
+                        style="background-image: url({{ asset('assets_client/order-poster.jpg') }});">
                         <tbody>
                             <tr>
                                 <td>

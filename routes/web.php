@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\client\HomeController;
+use App\Http\Controllers\client\InvoiceController;
 use App\Http\Controllers\client\ProductDetailController;
 use App\Http\Controllers\client\RegistrationController;
 use App\Http\Controllers\client\SessionsController;
@@ -169,6 +170,10 @@ Route::controller(OrderController::class)->middleware('auth')->group(function ()
 Route::controller(UserDashboardController::class)->middleware('auth')->group(function () {
     Route::get('/user', 'index');
 });
+Route::controller(InvoiceController::class)->middleware('auth')->group(function () {
+    Route::get('/invoice/{cart_id}', 'index');
+});
+
 // Route::get('/user-dashboard', function () {
 //     return view('client.user-dashboard');
 // });

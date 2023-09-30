@@ -17,8 +17,10 @@ class OrderController extends Controller
         // Kiểm tra người dùng đã đăng nhập hay chưa
         if ($user) {
             // Lấy giỏ hàng của người dùng hiện tại
-            $carts = Cart::where('user', $user->id)->orderByDesc('id')->get();
-
+            $carts = Cart::where('user', $user->id)
+                ->where('order', 0)
+                ->orderByDesc('id')
+                ->get();
             // Tính toán tổng tiền cho mỗi mục trong giỏ hàng
             $carts->each(function ($cart) {
                 $cart->totalPrice = $cart->quantity * $cart->price;
@@ -46,7 +48,8 @@ class OrderController extends Controller
         $order = Order::create($data);
         Cart::where('order', 0)
             ->where('user', $order->user)
-            ->update(['order' => $order->id]);
+
+            ->update(['order' => $order->id, 'status' => 1]);;
 
         return redirect('/');
     }

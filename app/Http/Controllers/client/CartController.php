@@ -43,6 +43,7 @@ class CartController extends Controller
             'user' => $data['user'],
             'product' => $data['product'],
             'attribute' => $data['attribute'],
+            'status' => '0',
         ], $data);
 
         // Trả về kết quả thành công hoặc thông báo lỗi

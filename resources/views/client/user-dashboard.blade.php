@@ -46,8 +46,8 @@
                             <div class="profile-contain">
                                 <div class="profile-image">
                                     <div class="position-relative">
-                                        <img src="assets_client/images/inner-page/user/1.jpg"
-                                            class="blur-up lazyload update_img" alt="">
+                                        <img src="{{ asset($user->image) }}" class="blur-up lazyload update_img"
+                                            alt="">
                                         <div class="cover-icon">
                                             <i class="fa-solid fa-pen">
                                                 <input type="file" onchange="readURL(this,0)">
@@ -57,8 +57,8 @@
                                 </div>
 
                                 <div class="profile-name">
-                                    <h3>Vicki E. Pope</h3>
-                                    <h6 class="text-content">vicki.pope@gmail.com</h6>
+                                    <h3>{{ $user->name }}</h3>
+                                    <h6 class="text-content">{{ $user->email }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -698,13 +698,13 @@
 
                                                     <div class="order-detail">
                                                         @if ($cart->orders->status == '1')
-                                                            <a href="http://">
+                                                            <a href="{{ url('invoice/' . $cart->orders->id . '', []) }}">
                                                                 <h4>Mã hóa đơn #{{ $cart->order }} <span
                                                                         class="success-bg">Thành công</span>
                                                                 </h4>
                                                             </a>
                                                         @else
-                                                            <a href="http://">
+                                                            <a href="{{ url('invoice/' . $cart->orders->id . '', []) }}">
                                                                 <h4>Mã hóa đơn #{{ $cart->order }} <span
                                                                         class="">Chờ
                                                                         xác nhận</span>
@@ -1255,7 +1255,7 @@
                                         </div>
                                         <div class="profile-name-detail">
                                             <div class="d-sm-flex align-items-center d-block">
-                                                <h3>Vicki E. Pope</h3>
+                                                <h3>{{ $user->name }}</h3>
                                                 <div class="product-rating profile-rating">
                                                     <ul class="rating">
                                                         <li>
