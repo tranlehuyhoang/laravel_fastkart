@@ -4,7 +4,9 @@ namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\Coupon;
 use Illuminate\Http\Request;
+use PHPUnit\Framework\Constraint\Count;
 
 class CartController extends Controller
 {
@@ -30,7 +32,10 @@ class CartController extends Controller
             return $cart->quantity * $cart->price;
         });
 
-        return view('client.cart', compact('carts', 'total'));
+        // Lấy tất cả coupon có status = 1
+        $coupons = Coupon::where('status', 1)->get();
+
+        return view('client.cart', compact('carts', 'total', 'coupons'));
     }
     public function add(Request $request)
     {
@@ -98,5 +103,11 @@ class CartController extends Controller
 
             // Thực hiện các hành động khác sau khi giảm số lượng của cart
         }
+    }
+    public function checkCoupon(Count $coupon)
+    {
+
+        // Thực hiện các hành động khác sau khi giảm số lượng của cart
+
     }
 }

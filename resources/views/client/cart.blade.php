@@ -231,20 +231,65 @@
                             <div class="coupon-cart">
                                 <h6 class="text-content mb-2">Coupon Apply</h6>
                                 <div class="mb-3 coupon-box input-group">
-                                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                                    <input type="text" class="form-control" id="exampleFormControlInput1"
                                         placeholder="Enter Coupon Code Here...">
-                                    <button class="btn-apply">Apply</button>
+                                    <button class="btn-apply" onclick="applyCoupon()">Apply</button>
+                                    @foreach ($coupons as $coupon)
+                                        <input style="display: none" type="text" name="{{ $coupon->code }}"
+                                            value="{{ $coupon->discount }}">
+                                    @endforeach
+                                    <script>
+                                        function applyCoupon() {
+                                            var couponCode = document.getElementById("exampleFormControlInput1").value;
+                                            var hiddenInputs = document.querySelectorAll('input[type="text"][style="display: none"]');
+
+                                            for (var i = 0; i < hiddenInputs.length; i++) {
+                                                var input = hiddenInputs[i];
+                                                if (input.name === couponCode) {
+                                                    var discount = input.value;
+                                                    var total = {{ $total }};
+                                                    var discountedPrice = (total * discount) / 100;
+                                                    var finalPrice = total - discountedPrice;
+
+                                                    // Hiển thị giá trị giảm giá trong thẻ h4
+                                                    var priceElement = document.getElementById("totalPrice");
+                                                    priceElement.textContent = "- $" + discountedPrice.toFixed(2);
+
+                                                    // Hiển thị giá trị finalPrice trong thẻ h4 khác
+                                                    var priceElement1 = document.getElementById("finalPrice");
+                                                    priceElement1.textContent = "$" + finalPrice.toFixed(2);
+
+                                                    // Lưu giá trị `discountedPrice` vào session
+                                                    @php
+                                                        session(['discountedPrice' => 'discountedPrice']);
+                                                        session(['finalPrice' => 'finalPrice']);
+                                                    @endphp
+
+                                                    break;
+                                                }
+
+                                            }
+                                            var total = {{ $total }};
+
+                                            var finalPrice = total;
+                                            @php
+                                                session(['finalPrice' => 'finalPrice']);
+                                            @endphp
+                                        }
+                                    </script>
                                 </div>
                             </div>
                             <ul>
                                 <li>
                                     <h4>Subtotal</h4>
                                     <h4 class="price">${{ $total }}</h4>
+
+
                                 </li>
 
                                 <li>
                                     <h4>Coupon Discount</h4>
-                                    <h4 class="price">(-) 0.00</h4>
+                                    <h4 class="price" id="totalPrice">-0.00</h4>
                                 </li>
 
 
@@ -254,7 +299,9 @@
                         <ul class="summery-total">
                             <li class="list-total border-top-0">
                                 <h4>Total (USD)</h4>
-                                <h4 class="price theme-color">$132.58</h4>
+
+
+                                <h4 class="price theme-color" id="finalPrice">${{ $total }}</h4>
                             </li>
                         </ul>
 
