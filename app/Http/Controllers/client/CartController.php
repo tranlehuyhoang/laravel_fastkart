@@ -25,7 +25,12 @@ class CartController extends Controller
             $carts = collect();
         }
 
-        return view('client.cart', compact('carts'));
+        // Tính tổng quantity * price
+        $total = $carts->sum(function ($cart) {
+            return $cart->quantity * $cart->price;
+        });
+
+        return view('client.cart', compact('carts', 'total'));
     }
     public function add(Request $request)
     {

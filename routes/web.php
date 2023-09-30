@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\admin\MediaController;
 
 use App\Http\Controllers\client\OrderController;
@@ -104,12 +105,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/order-list', function () {
         return view('admin.order-list');
     });
-    Route::get('/coupon-list', function () {
-        return view('admin.coupon-list');
-    });
-    Route::get('/coupon/create', function () {
-        return view('admin.coupon-create');
-    });
+
     Route::get('/product-review', function () {
         return view('admin.product-review');
     });
@@ -152,6 +148,14 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
         Route::put('/{product}', [ProductController::class, 'update']);
         Route::get('/{product}/delete', [ProductController::class, 'destroy']);
     });
+    Route::controller(CouponController::class)->middleware('auth')->group(function () {
+        Route::get('/coupon', 'index');
+        Route::get('/coupon/create', 'create');
+        Route::get('/coupon/{coupon}/edit', 'edit');
+        Route::post('/coupon', 'store');
+        Route::put('/coupon/{coupon}', 'update');
+        Route::get('/coupon/{coupon}/delete', 'destroy');
+    });
 });
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
@@ -174,6 +178,8 @@ Route::controller(InvoiceController::class)->middleware('auth')->group(function 
     Route::get('/invoice/{cart_id}', 'index');
     Route::get('/ordersuccess/{cart_id}', 'ordersuccess');
 });
+
+
 
 // Route::get('/user-dashboard', function () {
 //     return view('client.user-dashboard');

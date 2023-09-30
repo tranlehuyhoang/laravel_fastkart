@@ -239,7 +239,7 @@
                             <ul>
                                 <li>
                                     <h4>Subtotal</h4>
-                                    <h4 class="price">$125.65</h4>
+                                    <h4 class="price">${{ $total }}</h4>
                                 </li>
 
                                 <li>
@@ -247,10 +247,7 @@
                                     <h4 class="price">(-) 0.00</h4>
                                 </li>
 
-                                <li class="align-items-start">
-                                    <h4>Shipping</h4>
-                                    <h4 class="price text-end">$6.90</h4>
-                                </li>
+
                             </ul>
                         </div>
 

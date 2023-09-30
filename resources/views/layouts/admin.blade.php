@@ -341,7 +341,7 @@
                                     </a>
                                     <ul class="sidebar-submenu">
                                         <li>
-                                            <a href="{{ asset('admin/coupon-list') }}">Coupon List</a>
+                                            <a href="{{ asset('admin/coupon') }}">Coupon List</a>
                                         </li>
 
                                         <li>
