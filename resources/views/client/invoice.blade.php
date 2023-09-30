@@ -237,7 +237,7 @@
                                                     <td
                                                         style="padding: 28px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
                                                         <ul class="product-detail">
-                                                            <li>Green Capsicum#1</li>
+                                                            <li>{{ $cart->products->name }}</li>
                                                             <li>QTY: <span>{{ $cart->quantity }}</span></li>
                                                             <li>Price: <span>${{ $cart->price }}</span></li>
                                                         </ul>
@@ -265,7 +265,7 @@
                                                     Subtotal</td>
                                                 <td
                                                     style="text-align: right;font-size: 15px;font-weight: 400;padding: 15px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
-                                                    $90,00</td>
+                                                    ${{ $order->coupon }}</td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -273,7 +273,7 @@
                                                     Discount</td>
                                                 <td
                                                     style="text-align: right;font-size: 15px;font-weight: 400;padding: 15px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
-                                                    -$20,00</td>
+                                                    -$0.00</td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -281,7 +281,7 @@
                                                     Shipping</td>
                                                 <td
                                                     style="text-align: right;font-size: 15px;font-weight: 400;padding: 15px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
-                                                    $00,00</td>
+                                                    $0.00</td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -289,7 +289,7 @@
                                                     Total</td>
                                                 <td
                                                     style="text-align: right;font-size: 15px;font-weight: 600;padding-top: 15px;">
-                                                    $70,00</td>
+                                                    ${{ $order->coupon }}</td>
                                             </tr>
                                         </tbody>
                                     </table>

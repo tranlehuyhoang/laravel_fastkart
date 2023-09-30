@@ -704,7 +704,8 @@
                                                                 </h4>
                                                             </a>
                                                         @else
-                                                            <a href="{{ url('invoice/' . $cart->orders->id . '', []) }}">
+                                                            <a
+                                                                href="{{ url('ordersuccess/' . $cart->orders->id . '', []) }}">
                                                                 <h4>Mã hóa đơn #{{ $cart->order }} <span
                                                                         class="">Chờ
                                                                         xác nhận</span>

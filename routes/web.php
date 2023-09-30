@@ -172,6 +172,7 @@ Route::controller(UserDashboardController::class)->middleware('auth')->group(fun
 });
 Route::controller(InvoiceController::class)->middleware('auth')->group(function () {
     Route::get('/invoice/{cart_id}', 'index');
+    Route::get('/ordersuccess/{cart_id}', 'ordersuccess');
 });
 
 // Route::get('/user-dashboard', function () {
