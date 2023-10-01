@@ -242,39 +242,37 @@
                                         function applyCoupon() {
                                             var couponCode = document.getElementById("exampleFormControlInput1").value;
                                             var hiddenInputs = document.querySelectorAll('input[type="text"][style="display: none"]');
+                                            var inputFound = false;
 
                                             for (var i = 0; i < hiddenInputs.length; i++) {
                                                 var input = hiddenInputs[i];
                                                 if (input.name === couponCode) {
+                                                    inputFound = true;
                                                     var discount = input.value;
                                                     var total = {{ $total }};
                                                     var discountedPrice = (total * discount) / 100;
                                                     var finalPrice = total - discountedPrice;
 
-                                                    // Hiển thị giá trị giảm giá trong thẻ h4
+                                                    // Update the displayed discounted price
                                                     var priceElement = document.getElementById("totalPrice");
                                                     priceElement.textContent = "- $" + discountedPrice.toFixed(2);
 
-                                                    // Hiển thị giá trị finalPrice trong thẻ h4 khác
+                                                    // Update the displayed final price
                                                     var priceElement1 = document.getElementById("finalPrice");
                                                     priceElement1.textContent = "$" + finalPrice.toFixed(2);
 
-                                                    // Lưu giá trị `discountedPrice` vào session
-                                                    @php
-                                                        session(['discountedPrice' => 'discountedPrice']);
-                                                        session(['finalPrice' => 'finalPrice']);
-                                                    @endphp
+                                                    // Save the discounted price and coupon code in localStorage
+                                                    localStorage.setItem('discountedPrice', discountedPrice);
+                                                    localStorage.setItem('couponCode', couponCode);
 
                                                     break;
                                                 }
-
                                             }
-                                            var total = {{ $total }};
 
-                                            var finalPrice = total;
-                                            @php
-                                                session(['finalPrice' => 'finalPrice']);
-                                            @endphp
+                                            if (!inputFound) {
+                                                // No matching input field found, set couponCode to an empty string
+                                                localStorage.setItem('couponCode', '');
+                                            }
                                         }
                                     </script>
                                 </div>

@@ -564,12 +564,46 @@
 
                                 <li>
                                     <h4>Coupon/Code</h4>
-                                    <h4 class="price">$-0.00</h4>
+                                    <h4 class="price price_total_coupon">$-0.00</h4>
                                 </li>
 
                                 <li class="list-total">
                                     <h4>Total (USD)</h4>
-                                    <h4 class="price">${{ $totalAmount }}</h4>
+                                    <h4 class="price price_total">${{ $totalAmount }} </h4>
+
+
+                                    @foreach ($coupons as $coupon)
+                                        <input type="number" style="display: none" name="{{ $coupon->code }}"
+                                            value="{{ $coupon->discount }}">
+                                    @endforeach
+
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            var couponCode = localStorage.getItem("couponCode");
+
+                                            if (couponCode) {
+                                                var inputElement = document.querySelector('input[name="' + couponCode + '"]');
+                                                var couponinput = document.querySelector('input[name="coupon"]');
+                                                if (inputElement) {
+                                                    var discount = parseFloat(inputElement.value);
+                                                    var totalAmount = parseFloat({{ $totalAmount }});
+                                                    var discountedPrice = (totalAmount * discount) / 100;
+                                                    var finalPrice = totalAmount - discountedPrice;
+
+                                                    var priceElement = document.querySelector('.price_total');
+                                                    var priceElemen2 = document.querySelector('.price_total_coupon');
+                                                    priceElement.textContent = "$" + finalPrice.toFixed(2);
+                                                    priceElemen2.textContent = "- $" + discountedPrice.toFixed(2);
+                                                    couponinput.value = finalPrice;
+                                                } else {
+                                                    var couponinput = document.querySelector('input[name="coupon"]');
+                                                    var totalAmount = parseFloat({{ $totalAmount }});
+
+                                                    couponinput.value = totalAmount;
+                                                }
+                                            }
+                                        });
+                                    </script>
                                 </li>
                             </ul>
                         </div>
@@ -597,8 +631,9 @@
                         <form action="{{ url('checkout/create', []) }}" method="post">
                             @csrf
                             <input type="number" name="status" value="0" style="display: none">
-                            <input type="number" name="coupon" style="display: none" value="{{ $totalAmount }}">
-                            <input type="number" name="user" style="display: none" value="{{ auth()->user()->id }}">
+                            <input type="number" name="coupon" style="display: none" value="">
+                            <input type="number" name="user" style="display: none"
+                                value="{{ auth()->user()->id }}">
                             <button type="submit" class="btn theme-bg-color text-white btn-md w-100 mt-4 fw-bold">Place
                                 Order
                             </button>

@@ -143,17 +143,15 @@
                                 <ul class="summery-contain">
                                     <li>
                                         <h4>Sub Total</h4>
-                                        <h4 class="price">${{ $order->coupon }}</h4>
+                                        <h4 class="price">${{ $totalQuantity * $totalPrice }}</h4>
                                     </li>
 
-                                    <li>
-                                        <h4> Saving</h4>
-                                        <h4 class="price theme-color">$0.00</h4>
-                                    </li>
+
 
                                     <li>
                                         <h4>Coupon Discount</h4>
-                                        <h4 class="price text-danger">$0.00</h4>
+                                        <h4 class="price text-danger">${{ $totalQuantity * $totalPrice - $order->coupon }}
+                                        </h4>
                                     </li>
                                 </ul>
 

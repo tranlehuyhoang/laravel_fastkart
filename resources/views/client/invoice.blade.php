@@ -232,7 +232,8 @@
                                                 <tr>
                                                     <td
                                                         style="padding: 28px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
-                                                        <img src="{{ asset($cart->products->image) }}" alt="">
+                                                        <img src="{{ asset($cart->products->image) }}" alt=""
+                                                            style="height: 80px">
                                                     </td>
                                                     <td
                                                         style="padding: 28px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
@@ -265,7 +266,7 @@
                                                     Subtotal</td>
                                                 <td
                                                     style="text-align: right;font-size: 15px;font-weight: 400;padding: 15px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
-                                                    ${{ $order->coupon }}</td>
+                                                    ${{ $totalQuantity * $totalPrice }}</td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -273,7 +274,7 @@
                                                     Discount</td>
                                                 <td
                                                     style="text-align: right;font-size: 15px;font-weight: 400;padding: 15px 0;border-bottom: 1px solid rgba(217, 217, 217, 0.5);">
-                                                    -$0.00</td>
+                                                    -${{ $totalQuantity * $totalPrice - $order->coupon }}</td>
                                             </tr>
                                             <tr>
                                                 <td

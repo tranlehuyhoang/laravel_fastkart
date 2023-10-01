@@ -30,10 +30,17 @@ class InvoiceController extends Controller
             // Không có đơn hàng hoặc không có đơn hàng có status = 1, thực hiện hành động tùy chọn ở đây
             return redirect('/user');
         }
+        $totalQuantity = 0;
+        $totalPrice = 0; // Initialize total price variable
+
+        foreach ($carts as $cart) {
+            $totalQuantity += $cart->quantity;
+            $totalPrice += $cart->quantity * $cart->price; // Calculate total price
+        }
 
         $order = Order::find($cart_id); // Lấy thông tin đơn hàng
 
-        return view('client.invoice', compact('user', 'carts', 'order'));
+        return view('client.invoice', compact('user', 'carts', 'order', 'totalQuantity', 'totalPrice'));
     }
     public function ordersuccess(int $cart_id)
     {
@@ -52,16 +59,20 @@ class InvoiceController extends Controller
             ->get();
 
         if ($carts->isEmpty()) {
-            // Không có đơn hàng hoặc không có đơn hàng có status = 1, thực hiện hành động tùy chọn ở đây
+            // No order or no order with status = 1, perform optional action here
             return redirect('/user');
         }
+
         $totalQuantity = 0;
+        $totalPrice = 0; // Initialize total price variable
+
         foreach ($carts as $cart) {
             $totalQuantity += $cart->quantity;
+            $totalPrice += $cart->quantity * $cart->price; // Calculate total price
         }
 
-        $order = Order::find($cart_id); // Lấy thông tin đơn hàng
+        $order = Order::find($cart_id); // Get order information
 
-        return view('client.order-success', compact('user', 'carts', 'order', 'totalQuantity'));
+        return view('client.order-success', compact('user', 'carts', 'order', 'totalQuantity', 'totalPrice'));
     }
 }

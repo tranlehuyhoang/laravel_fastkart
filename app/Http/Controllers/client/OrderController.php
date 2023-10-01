@@ -4,6 +4,7 @@ namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\Coupon;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,10 @@ class OrderController extends Controller
             $totalAmount = 0;
         }
 
-        return view('client.checkout', compact('carts', 'totalAmount'));
+        // Lấy tất cả các coupon có status = 1
+        $coupons = Coupon::where('status', 1)->get();
+
+        return view('client.checkout', compact('carts', 'totalAmount', 'coupons'));
     }
     public function create(Request $request)
     {
@@ -42,14 +46,22 @@ class OrderController extends Controller
             'coupon' => '',
             'user' => 'required',
             'status' => '',
-
         ]);
 
         $order = Order::create($data);
         Cart::where('order', 0)
             ->where('user', $order->user)
+            ->update(['order' => $order->id, 'status' => 1]);
 
-            ->update(['order' => $order->id, 'status' => 1]);;
+        // Retrieve couponCode from localStorage using JavaScript
+        echo '<script>var couponCode = localStorage.getItem("couponCode");</script>';
+
+        // Update coupon status to 0
+        if (!empty($data['coupon'])) {
+            echo '<script>Coupon.where("code", couponCode)
+                
+                .update({ status: 0 });</script>';
+        }
 
         return redirect('/');
     }
